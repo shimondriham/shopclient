@@ -1,12 +1,12 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-function LayoutAdmin(props){
+function LayoutClient(props){
   return(
-    <React.Fragment>
+    <div>
       <Outlet />
-    </React.Fragment>
+    </div> 
   )
 }
 
-export default LayoutAdmin
+export default LayoutClient

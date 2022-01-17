@@ -1,16 +1,17 @@
-import './App.css';
+// import logo from './logo.svg';
 import React from 'react';
+import './App.css';
 import AppRoute from './appRoute';
 
 
 
 function App() {
+
   return (
-    <div className="container">
- <React.Fragment>
-    <AppRoute/>
- </React.Fragment>
-    </div>
+      <React.Fragment>
+        <AppRoute />
+      </React.Fragment>
+   
   );
 }
 
