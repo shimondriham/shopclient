@@ -1,10 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import AppRoute from './appRoute';
+
+
 
 function App() {
   return (
-    <div className="App">
- <h1>react shop </h1>
+    <div className="container">
+ <React.Fragment>
+    <AppRoute/>
+ </React.Fragment>
     </div>
   );
 }
