@@ -8,6 +8,7 @@ function AppRoute(props){
   return(
     <Router>
       <Routes>
+        {/* for admin user */}
         <Route path="/admin" element={<LayoutAdmin />}>
           <Route index element={<LoginAdmin />}/>
         </Route>
