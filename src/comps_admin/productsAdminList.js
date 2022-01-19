@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import AuthAdminComp from '../misc_comps/authAdminComp';
 import { API_URL, doApiGet } from '../services/apiService';
 
 function ProductsAdminList(props){
@@ -27,6 +28,7 @@ function ProductsAdminList(props){
 
   return(
     <div className='container'>
+      <AuthAdminComp/>
       <h1>List of products in system</h1>
       <table className='table table-striped'>
         <thead>
