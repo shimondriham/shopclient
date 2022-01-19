@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthAdminComp from '../misc_comps/authAdminComp';
-import { API_URL, doApiGet } from '../services/apiService';
+import { API_URL, doApiGet, doApiMethod } from '../services/apiService';
 
 function ProductsAdminList(props){
   let [ar,setAr] = useState([]);
+  let nav = useNavigate();
 
   useEffect(() => {
     doApi();
@@ -15,7 +16,7 @@ function ProductsAdminList(props){
     let url = API_URL + "/products";
     try{
       let resp = await doApiGet(url);
-      console.log(resp.data);
+      // console.log(resp.data);
       setAr(resp.data);
     }
     catch(err){
@@ -24,13 +25,32 @@ function ProductsAdminList(props){
         console.log(err.response.data)
       }
     }
+  }
 
+  const delProduct = async(_idDel) => {
+    if(window.confirm("Are you sure you want to delete?")){
+      try{
+        let url = API_URL+"/products/"+_idDel;
+        let resp = await doApiMethod(url,"DELETE",{});
+        console.log(resp.data);
+        if(resp.data.deletedCount){
+          alert("product delted !");
+        }
+        // for show the new list without the product that we deleted
+        doApi();
+      }
+      catch(err){
+        console.log(err.response);
+        alert("there problem , try again later")
+      }
+    }
   }
 
   return(
     <div className='container'>
-      <AuthAdminComp/>
+      <AuthAdminComp />
       <h1>List of products in system</h1>
+      
       <Link to="/admin/addProduct" className="btn btn-success">Add new product</Link>
       <table className='table table-striped'>
         <thead>
@@ -53,12 +73,15 @@ function ProductsAdminList(props){
                 <td>{item.name}</td>
                 <td>{item.price}</td>
                 <td>{item.qty}</td>
+                {/* בהמשך נהפוך את הקטגוריה לשם האמיתי שלה */}
                 <td>{item.cat_short_id}</td>
                 <td>{item.condition}</td>
                 <td>{item.short_id}</td>
                 <td>
-                  <button className='badge mx-1 bg-danger'>X</button>
-                  <button className='badge bg-info'>Edit</button>
+                  <button onClick={() => {delProduct(item._id)}} className='badge bg-danger'>X</button>
+                  <button onClick={() => {
+                    nav("/admin/editProduct/"+item._id)
+                  }} className='badge bg-info'>Edit</button>
                 </td>
               </tr>
             )

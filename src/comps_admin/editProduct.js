@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form"
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import AuthAdminComp from '../misc_comps/authAdminComp';
 import { API_URL, doApiGet, doApiMethod } from '../services/apiService';
 
-function AddProduct(props) {
+function EditProduct(props) {
   let [cat_ar, setCatAr] = useState([]);
+  // the props of the products we want to edit
+  let [product,setProduct] = useState({});
+  let params = useParams();
 
   let nav = useNavigate()
   let { register, handleSubmit, formState: { errors } } = useForm();
@@ -22,12 +25,19 @@ function AddProduct(props) {
     doApi()
   }, [])
 
-  // get the catgories for select box
+  // get the catgories for select box and also data of the product we want edit
   const doApi = async () => {
     let url = API_URL + "/categories";
     let resp = await doApiGet(url);
-    console.log(resp.data);
+    // console.log(resp.data);
     setCatAr(resp.data);
+
+    // get product props from api 
+    let urlProduct = API_URL+"/products/single/"+params.id;
+    let resp2 = await doApiGet(urlProduct);
+    console.log(resp2.data)
+    setProduct(resp2.data);
+
   }
 
   const onSubForm = (formData) => {
@@ -36,12 +46,12 @@ function AddProduct(props) {
   }
 
   const doFormApi = async (formData) => {
-    let url = API_URL + "/products";
+    let url = API_URL + "/products/"+params.id;
     try {
-      let resp = await doApiMethod(url, "POST", formData);
+      let resp = await doApiMethod(url, "PUT", formData);
       // console.log(resp.data);
-      if (resp.data._id) {
-        alert("Product added");
+      if (resp.data.modifiedCount) {
+        alert("Product updated");
         // back to the list of products in the admin panel
         nav("/admin/products")
       }
@@ -55,26 +65,26 @@ function AddProduct(props) {
   return (
     <div className='container'>
       <AuthAdminComp />
-      <h1>Add new product</h1>
+      <h1>Edit product</h1>
       <form onSubmit={handleSubmit(onSubForm)} className='col-md-6 p-3 shadow'>
         <label>Name:</label>
-        <input {...nameRef} type="text" className='form-control' />
+        <input defaultValue={product.name} {...nameRef} type="text" className='form-control' />
         {errors.name ? <small className='text-danger d-block'>* Enter valid name 2 to 99 chars</small> : ""}
 
         <label>Info:</label>
-        <textarea {...infoRef} className='form-control' rows="3"></textarea>
+        <textarea defaultValue={product.info} {...infoRef} className='form-control' rows="3"></textarea>
         {errors.info ? <small className='text-danger d-block'>* Enter valid info, 3 to 500 chars</small> : ""}
 
         <label>Price:</label>
-        <input {...priceRef} type="number" defaultValue="50" className='form-control' />
+        <input defaultValue={product.price} {...priceRef} type="number"  className='form-control' />
         {errors.price ? <small className='text-danger d-block'>* Enter valid  price, between 1 to 999999</small> : ""}
 
         <label>Qty (amount in the stock):</label>
-        <input {...qtyRef} type="number" defaultValue="1" className='form-control' />
+        <input defaultValue={product.qty} {...qtyRef} type="number" className='form-control' />
         {errors.qty ? <small className='text-danger d-block'>* Enter valid  qty, between 1 to 9999</small> : ""}
 
         <label>Category:</label>
-        <select {...cat_short_idRef}  className='form-select'>
+        <select value={product.cat_short_id} {...cat_short_idRef}  className='form-select'>
           <option  value="" >Choose Category</option>
           {cat_ar.map(item => {
             return (
@@ -86,20 +96,21 @@ function AddProduct(props) {
         {errors.cat_short_id ? <small className='text-danger d-block'>You must choose category from the list </small> : ""}
 
         <label>Img url:</label>
-        <input {...img_urlRef} type="text" className='form-control' />
+        <input defaultValue={product.img_url} {...img_urlRef} type="text" className='form-control' />
         {errors.img_url ? <small className='text-danger d-block'>* Enter valid  img url </small> : ""}
 
         <label>Condition:</label>
-        <select  {...conditionRef} className='form-select'>
+        <select value={product.condition} {...conditionRef} className='form-select'>
           <option value="new">Brand New</option>
           <option value="like new">Like New</option>
           <option value="used">Used</option>
           <option value="broken">Broken</option>
         </select>
-        <button>Add new product</button>
+        <button className='btn btn-info me-2'>Update Product</button>
+        <Link className='btn btn-danger' to="/admin/products">Canel</Link>
       </form>
     </div>
   )
 }
 
-export default AddProduct
+export default EditProduct

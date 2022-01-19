@@ -11,7 +11,6 @@ function LoginAdmin(props){
     // data = the inputs in the form with ref in 1 object
     console.log(data);
     doApi(data)
-    
   }
 
   const doApi = async(_dataBody) => {
