@@ -6,8 +6,16 @@ function AuthAdminComp(props){
   let nav = useNavigate();
 
   useEffect(() => {
-    doApi()
+    // check if there token in the browser
+    if(localStorage["tok"]){
+      doApi()
+    }
+    else{
+      alert("You must be admin to be here! or you need to login again")
+      nav("/admin")
+    }
   },[])
+
 
   const doApi = async() => {
     let url = API_URL + "/users/myInfo";

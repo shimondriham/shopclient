@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import AuthAdminComp from '../misc_comps/authAdminComp';
 import { API_URL, doApiGet } from '../services/apiService';
 
@@ -30,6 +31,7 @@ function ProductsAdminList(props){
     <div className='container'>
       <AuthAdminComp/>
       <h1>List of products in system</h1>
+      <Link to="/admin/addProduct" className="btn btn-success">Add new product</Link>
       <table className='table table-striped'>
         <thead>
           <tr>
