@@ -54,7 +54,7 @@ function ProductsAdminList(props){
                 <td>{item.short_id}</td>
                 <td>
                   <button className='badge mx-1 bg-danger'>X</button>
-                  <button className='badge  bg-info'>Edit</button>
+                  <button className='badge bg-info'>Edit</button>
                 </td>
               </tr>
             )
