@@ -1,8 +1,10 @@
 import React from 'react';
 import {useForm} from "react-hook-form"
+import { useNavigate } from 'react-router-dom';
 import { API_URL, doApiMethod } from '../services/apiService';
 
 function LoginAdmin(props){
+  let nav = useNavigate()
   let {register , handleSubmit ,  formState: { errors } } = useForm();
 
   const onSubForm = (data) => {
@@ -19,6 +21,8 @@ function LoginAdmin(props){
     console.log(resp.data);
       if(resp.data.token){
         localStorage.setItem("tok",resp.data.token);
+        // send user to product list
+        nav("/admin/products")
       }
       else{
         alert("There some error come back later...");
