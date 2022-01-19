@@ -13,7 +13,7 @@ function AddProduct(props){
   let nameRef = register("name", {required:true , minLength:2,maxLength:150})
   let infoRef = register("info",{required:true , minLength:2,maxLength:500})
   let priceRef = register("price",{required:true , min:1,max:999999})
-  let cat_short_idRef = register("cat_short_id",{required:true , min:2,max:99})
+  let cat_short_idRef = register("cat_short_id",{required:false , minLength:1,maxLength:99})
   let img_urlRef = register("img_url",{required:false , minLength:3,maxLength:500})
   let conditionRef = register("condition",{required:false , minLength:3,maxLength:100})
   let qtyRef = register("qty",{required:true , min:1,max:9999})
@@ -32,9 +32,29 @@ function AddProduct(props){
     setCatAr(resp.data);
   }
 
-  const onSubForm = (data) => {
-    console.log(data);
+  const onSubForm = (formData) => {
+    // console.log(formData);
+    doFormApi(formData);
   }
+
+  const doFormApi = async (formData) => {
+    let url = API_URL + "/products";
+    try {
+      let resp = await doApiMethod(url, "POST", formData);
+      // console.log(resp.data);
+      if (resp.data._id) {
+        alert("Product added");
+        nav("/admin/products")
+      }
+    }
+    catch (err) {
+      console.log(err.response);
+      alert("There problem try again later")
+    }
+  }
+
+
+
 
   return(
     <div className='container'>
@@ -72,7 +92,7 @@ function AddProduct(props){
         {errors.img_url ? <small className='text-danger d-block'>* Enter valid  img url </small> : ""}
 
         <label>Condition:</label>
-        <select {...conditionRef} className='form-select'>
+        <select  {...conditionRef} className='form-select'>
           <option value="new">Brand New</option>
           <option value="like new">Like New</option>
           <option value="used">Used</option>
