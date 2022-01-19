@@ -15,11 +15,19 @@ function LoginAdmin(props){
   const doApi = async(_dataBody) => {
     let url = API_URL + "/users/login"
     try{
-    let data = await doApiMethod(url, "POST" ,_dataBody);
-    console.log(data);
+    let resp = await doApiMethod(url, "POST" ,_dataBody);
+    console.log(resp.data);
+      if(resp.data.token){
+        localStorage.setItem("tok",resp.data.token);
+      }
+      else{
+        alert("There some error come back later...");
+      }
     }
     catch(err){
-      console.log(err)
+      alert(err.response.data.err)
+      // err.response.data -> איסוף טעויות בבקשת אקסיוס
+      console.log(err.response.data)
     }
   }
 
