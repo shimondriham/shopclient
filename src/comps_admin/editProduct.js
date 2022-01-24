@@ -106,7 +106,7 @@ function EditProduct(props) {
           <option value="used">Used</option>
           <option value="broken">Broken</option>
         </select>
-        <button className='btn btn-info me-2'>Update Product</button>
+        <button className='btn btn-info me-2 my-2'>Update Product</button>
         <Link className='btn btn-danger' to="/admin/products">Canel</Link>
       </form>
     </div>

@@ -96,7 +96,7 @@ function AddProduct(props) {
           <option value="used">Used</option>
           <option value="broken">Broken</option>
         </select>
-        <button>Add new product</button>
+        <button className='btn btn-info my-2'>Add new product</button>
       </form>
     </div>
   )
