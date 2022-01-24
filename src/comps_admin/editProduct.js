@@ -90,8 +90,8 @@ function EditProduct(props) {
         {errors.qty ? <small className='text-danger d-block'>* Enter valid  qty, between 1 to 9999</small> : ""}
 
         <label>Category:</label>
-        <select value={product.cat_short_id} {...cat_short_idRef}  className='form-select'>
-          <option defaultValue="" >Choose Category</option>
+        <select defaultValue={product.cat_short_id} {...cat_short_idRef}  className='form-select'>
+          <option value="" >Choose Category</option>
           {cat_ar.map(item => {
             return (
               <option key={item._id}  value={item.short_id}>{item.name}</option>
