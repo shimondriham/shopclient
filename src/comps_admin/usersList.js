@@ -30,6 +30,7 @@ function UsersList(props){
     
   }
 
+  // change role user for admin or back to regular user
   const changeRole = async(_userId,_role) => {
     let url = API_URL + `/users/changeRole/${_userId}/${_role}`;
     try{

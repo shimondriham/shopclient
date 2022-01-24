@@ -3,18 +3,38 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthAdminComp from '../misc_comps/authAdminComp';
 import { API_URL, doApiGet, doApiMethod } from '../services/apiService';
 
+
+
+
 function ProductsAdminList(props){
   let [ar,setAr] = useState([]);
+  let [catObj,setCatObj] = useState({})
   let nav = useNavigate();
 
   useEffect(() => {
+    
     doApi();
   },[])
 
   const doApi = async() => {
     // get the product list from server api
-    let url = API_URL + "/products";
+
+
+
     try{
+      let url0 = API_URL + "/categories";
+      let resp0 = await doApiGet(url0);
+      console.log(resp0.data);
+      let temp_ar = resp0.data;
+      // var that will assoiative array with short_id that equal
+      // to the category name categories_data["97548"] -> cars
+      let categories_data = {};
+      temp_ar.forEach(item => {
+        categories_data[item.short_id] = item.name;
+      })
+      setCatObj(categories_data)
+ 
+      let url = API_URL + "/products";
       let resp = await doApiGet(url);
       // console.log(resp.data);
       setAr(resp.data);
@@ -73,8 +93,10 @@ function ProductsAdminList(props){
                 <td>{item.name}</td>
                 <td>{item.price}</td>
                 <td>{item.qty}</td>
-                {/* בהמשך נהפוך את הקטגוריה לשם האמיתי שלה */}
-                <td>{item.cat_short_id}</td>
+                {/* show the name of category and not its short_id
+                look on line 31+
+                */}
+                <td>{catObj[item.cat_short_id]}</td>
                 <td>{item.condition}</td>
                 <td>{item.short_id}</td>
                 <td>

@@ -24,7 +24,7 @@ function AppRoute(props){
           <Route path="/admin/categories" element={<CategoriesList />}/>
           <Route path="/admin/editCategory/:url_name" element={<EditCategory />}/>
           <Route path="/admin/addcategory" element={<AddCategory />}/>
-          <Route path="/admin/users" element={<UsersList/>}/>
+          <Route path="/admin/users" element={<UsersList />}/>
         </Route>
         {/* For regular user client path */}
         <Route path="/" element={<LayoutClient />}>
