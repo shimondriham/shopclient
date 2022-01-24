@@ -91,10 +91,10 @@ function EditProduct(props) {
 
         <label>Category:</label>
         <select value={product.cat_short_id} {...cat_short_idRef}  className='form-select'>
-          <option  value="" >Choose Category</option>
+          <option defaultValue="" >Choose Category</option>
           {cat_ar.map(item => {
             return (
-              <option key={item._id} defaultValue={item.short_id}>{item.name}</option>
+              <option key={item._id}  value={item.short_id}>{item.name}</option>
             )
           })}
           {/* loop from api of category */}
