@@ -56,11 +56,9 @@ function EditProduct(props) {
         nav("/admin/products")
       }
       else{
-        alert("you not change nothing")
+        alert("You not change nothing for update.")
       }
-  
     }
- 
     catch (err) {
       console.log(err.response);
       alert("There problem try again later")
@@ -71,6 +69,9 @@ function EditProduct(props) {
     <div className='container'>
       <AuthAdminComp />
       <h1>Edit product</h1>
+      {/* if product._id is true its mean that the product
+      object get the all data from the api and with this check
+      we avoid from blank memory of inputs  */}
       {(product._id) ?
       <form onSubmit={handleSubmit(onSubForm)} className='col-md-6 p-3 shadow'>
         <label>Name:</label>
@@ -90,11 +91,12 @@ function EditProduct(props) {
         {errors.qty ? <small className='text-danger d-block'>* Enter valid  qty, between 1 to 9999</small> : ""}
 
         <label>Category:</label>
+        {/* DefaultValue - what to choose in the start from the options */}
         <select defaultValue={product.cat_short_id} {...cat_short_idRef}  className='form-select'>
-          <option value="" >Choose Category</option>
+          <option  value="" >Choose Category</option>
           {cat_ar.map(item => {
             return (
-              <option key={item._id}  value={item.short_id}>{item.name}</option>
+              <option key={item._id} value={item.short_id}>{item.name}</option>
             )
           })}
           {/* loop from api of category */}
@@ -112,9 +114,9 @@ function EditProduct(props) {
           <option value="used">Used</option>
           <option value="broken">Broken</option>
         </select>
-        <button className='btn btn-info me-2 my-2'>Update Product</button>
+        <button className='btn btn-info me-2'>Update Product</button>
         <Link className='btn btn-danger' to="/admin/products">Canel</Link>
-      </form>:<h2>loading...</h2>}
+      </form> : <h2>Loading...</h2> }
     </div>
   )
 }

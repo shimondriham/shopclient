@@ -5,8 +5,10 @@ import AuthAdminComp from '../misc_comps/authAdminComp';
 import { API_URL, doApiGet, doApiMethod } from '../services/apiService';
 
 function AddProduct(props) {
+  // categoried data the will load from api request
   let [cat_ar, setCatAr] = useState([]);
-  let [btnSend,setBtnSend]= useState(false);
+  // for disabled the send btn for avoid multi click on him
+  let [btnSend,setBtnSend] = useState(false)
 
   let nav = useNavigate()
   let { register, handleSubmit, formState: { errors } } = useForm();
@@ -17,6 +19,7 @@ function AddProduct(props) {
   let cat_short_idRef = register("cat_short_id", { required: true, minLength: 1, maxLength: 99 })
   let img_urlRef = register("img_url", { required: false, minLength: 3, maxLength: 500 })
   let conditionRef = register("condition", { required: false, minLength: 3, maxLength: 100 })
+  // qty - amount of product in the store
   let qtyRef = register("qty", { required: true, min: 1, max: 9999 })
 
   useEffect(() => {
@@ -33,7 +36,7 @@ function AddProduct(props) {
 
   const onSubForm = (formData) => {
     // console.log(formData);
-    setBtnSend(true)
+    setBtnSend(true);
     doFormApi(formData);
   }
 
@@ -51,6 +54,7 @@ function AddProduct(props) {
     catch (err) {
       console.log(err.response);
       alert("There problem try again later")
+      nav("/admin/products")
     }
   }
 
@@ -98,7 +102,8 @@ function AddProduct(props) {
           <option value="used">Used</option>
           <option value="broken">Broken</option>
         </select>
-        <button  disabled={btnSend} className='btn btn-info my-2'>Add new product</button>
+        {/* disable-> if true user cant click */}
+        <button disabled={btnSend}>Add new product</button>
       </form>
     </div>
   )

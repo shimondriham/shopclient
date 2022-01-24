@@ -14,6 +14,4 @@ function HeaderAdmin(props){
   )
 }
 
-
 export default HeaderAdmin
-

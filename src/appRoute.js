@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes , Route } from 'react-router-dom';
 import Home from './comps/home';
 import LayoutClient from './comps/layoutClient';
 import AddProduct from './comps_admin/addProduct';
+import CategoriesList from './comps_admin/categoriesList';
 import EditProduct from './comps_admin/editProduct';
 import LayoutAdmin from './comps_admin/layoutAdmin';
 import LoginAdmin from './comps_admin/loginAdmin';
@@ -17,6 +18,7 @@ function AppRoute(props){
           <Route path="/admin/products" element={<ProductsAdminList />}/>
           <Route path="/admin/addProduct" element={<AddProduct />}/>
           <Route path="/admin/editProduct/:id" element={<EditProduct />}/>
+          <Route path="/admin/categories" element={<CategoriesList/>}/>
         </Route>
         {/* For regular user client path */}
         <Route path="/" element={<LayoutClient />}>
