@@ -1,0 +1,10 @@
+.header_admin nav a{
+    color:white;
+    text-decoration: none;
+    padding:0 12px;
+  }
+  
+  .header_admin nav a:hover{
+    color:yellow;
+  }
+  
