@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect , useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react/cjs/react.development';
 import AuthAdminComp from '../misc_comps/authAdminComp';
-import { API_URL, doApiGet } from '../services/apiService';
+import { API_URL, doApiGet, doApiMethod } from '../services/apiService';
 
 function CategoriesList(props){
   let [ar,setAr] = useState([]);
@@ -27,8 +26,23 @@ function CategoriesList(props){
     }
   }
 
-  const delCategory = (_id) => {
-
+  const delCategory = async(_idDel) => {
+    if(window.confirm("Are you sure you want to delete?")){
+      try{
+        let url = API_URL+"/categories/"+_idDel;
+        let resp = await doApiMethod(url,"DELETE",{});
+        console.log(resp.data);
+        if(resp.data.deletedCount){
+          alert("Category delted !");
+        }
+        // for show the new list without the product that we deleted
+        doApi();
+      }
+      catch(err){
+        console.log(err.response);
+        alert("there problem , try again later")
+      }
+    }
   }
  
   return(
@@ -58,7 +72,7 @@ function CategoriesList(props){
                 <td>
                   <button onClick={() => {delCategory(item._id)}} className='badge bg-danger'>X</button>
                   <button onClick={() => {
-                    nav("/admin/editProduct/"+item._id)
+                    nav("/admin/editCategory/"+item._id)
                   }} className='badge bg-info'>Edit</button>
                 </td>
               </tr>
