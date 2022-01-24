@@ -78,7 +78,7 @@ function ProductsAdminList(props){
                 <td>{item.condition}</td>
                 <td>{item.short_id}</td>
                 <td>
-                  <button onClick={() => {delProduct(item._id)}} className='badge bg-danger'>X</button>
+                  <button onClick={() => {delProduct(item._id)}} className='badge bg-danger mx-1'>X</button>
                   <button onClick={() => {
                     nav("/admin/editProduct/"+item._id)
                   }} className='badge bg-info'>Edit</button>
