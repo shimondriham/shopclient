@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react/cjs/react.development';
 import AuthAdminComp from '../misc_comps/authAdminComp';
 import { API_URL, doApiGet } from '../services/apiService';
@@ -35,6 +35,7 @@ function CategoriesList(props){
     <div className='container'>
       <AuthAdminComp />
       <h1>List of Categoires in system</h1>
+      <Link className='btn btn-success' to="/admin/addcategory">Add new Category</Link>
       <table className='table table-striped'>
         <thead>
           <tr>
