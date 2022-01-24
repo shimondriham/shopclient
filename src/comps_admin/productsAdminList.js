@@ -88,6 +88,7 @@ function ProductsAdminList(props){
           })}
         </tbody>
       </table>
+      {ar.length === 0 ? <h2>Loading...</h2> : ""}
     </div> 
   )
 }
