@@ -6,6 +6,7 @@ import { API_URL, doApiGet, doApiMethod } from '../services/apiService';
 
 function AddProduct(props) {
   let [cat_ar, setCatAr] = useState([]);
+  let [btnSend,setBtnSend]= useState(false);
 
   let nav = useNavigate()
   let { register, handleSubmit, formState: { errors } } = useForm();
@@ -32,6 +33,7 @@ function AddProduct(props) {
 
   const onSubForm = (formData) => {
     // console.log(formData);
+    setBtnSend(true)
     doFormApi(formData);
   }
 
@@ -96,7 +98,7 @@ function AddProduct(props) {
           <option value="used">Used</option>
           <option value="broken">Broken</option>
         </select>
-        <button className='btn btn-info my-2'>Add new product</button>
+        <button  disabled={btnSend} className='btn btn-info my-2'>Add new product</button>
       </form>
     </div>
   )

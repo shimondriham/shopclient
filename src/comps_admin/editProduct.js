@@ -55,7 +55,12 @@ function EditProduct(props) {
         // back to the list of products in the admin panel
         nav("/admin/products")
       }
+      else{
+        alert("you not change nothing")
+      }
+  
     }
+ 
     catch (err) {
       console.log(err.response);
       alert("There problem try again later")
@@ -66,6 +71,7 @@ function EditProduct(props) {
     <div className='container'>
       <AuthAdminComp />
       <h1>Edit product</h1>
+      {(product._id) ?
       <form onSubmit={handleSubmit(onSubForm)} className='col-md-6 p-3 shadow'>
         <label>Name:</label>
         <input defaultValue={product.name} {...nameRef} type="text" className='form-control' />
@@ -88,7 +94,7 @@ function EditProduct(props) {
           <option  value="" >Choose Category</option>
           {cat_ar.map(item => {
             return (
-              <option key={item._id} value={item.short_id}>{item.name}</option>
+              <option key={item._id} defaultValue={item.short_id}>{item.name}</option>
             )
           })}
           {/* loop from api of category */}
@@ -100,7 +106,7 @@ function EditProduct(props) {
         {errors.img_url ? <small className='text-danger d-block'>* Enter valid  img url </small> : ""}
 
         <label>Condition:</label>
-        <select value={product.condition} {...conditionRef} className='form-select'>
+        <select defaultValue={product.condition} {...conditionRef} className='form-select'>
           <option value="new">Brand New</option>
           <option value="like new">Like New</option>
           <option value="used">Used</option>
@@ -108,7 +114,7 @@ function EditProduct(props) {
         </select>
         <button className='btn btn-info me-2 my-2'>Update Product</button>
         <Link className='btn btn-danger' to="/admin/products">Canel</Link>
-      </form>
+      </form>:<h2>loading...</h2>}
     </div>
   )
 }
