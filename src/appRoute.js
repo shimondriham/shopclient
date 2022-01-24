@@ -21,7 +21,7 @@ function AppRoute(props){
           <Route path="/admin/addProduct" element={<AddProduct />}/>
           <Route path="/admin/editProduct/:id" element={<EditProduct />}/>
           <Route path="/admin/categories" element={<CategoriesList />}/>
-          <Route path="/admin/editCategory/:id" element={<EditCategory />}/>
+          <Route path="/admin/editCategory/:url_name" element={<EditCategory />}/>
           <Route path="/admin/addcategory" element={<AddCategory />}/>
         </Route>
         {/* For regular user client path */}
