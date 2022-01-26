@@ -12,7 +12,7 @@ function AuthAdminComp(props){
     }
     else{
       alert("You must be admin to be here! or you need to login again")
-      nav("/admin")
+      nav("/admin/logout")
     }
   },[])
 
@@ -24,14 +24,14 @@ function AuthAdminComp(props){
       // check if the token is of admin
       if(resp.data.role != "admin"){
         alert("You must be admin to be here! or you need to login again")
-        nav("/admin")
+        nav("/admin/logout")
       }
     }
     catch(err){
       // if there not token at all
       console.log(err.response);
       alert("You must be admin to be here! or you need to login again")
-      nav("/admin")
+      nav("/admin/logout")
       // if token invalid for admin
 
     }

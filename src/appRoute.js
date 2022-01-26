@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes , Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Home from './comps/home';
 import LayoutClient from './comps/layoutClient';
 import AddCategory from './comps_admin/addCategory';
@@ -12,6 +13,8 @@ import LoginAdmin from './comps_admin/loginAdmin';
 import LogoutAdmin from './comps_admin/logoutAdmin';
 import ProductsAdminList from './comps_admin/productsAdminList';
 import UsersList from './comps_admin/usersList';
+import 'react-toastify/dist/ReactToastify.css';
+
 function AppRoute(props){
   return(
     <Router>
@@ -33,6 +36,7 @@ function AppRoute(props){
           <Route index element={<Home />} />
         </Route> 
       </Routes>
+      <ToastContainer position="top-right" theme="colored"/>
     </Router> 
   )
 }
