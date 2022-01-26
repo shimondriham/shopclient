@@ -10,12 +10,12 @@ import { API_URL, doApiGet, doApiMethod } from '../services/apiService';
 
 function ProductsAdminList(props){
   let [ar,setAr] = useState([]);
+  let [numPage,setPageNum] = useState(1);
   let [catObj,setCatObj] = useState({})
   let nav = useNavigate();
   let location = useLocation();
 
-  useEffect(() => {
-    
+  useEffect(() => {  
     doApi();
   },[location])
 
@@ -40,10 +40,10 @@ function ProductsAdminList(props){
       const urlParams = new URLSearchParams(window.location.search);
       //?page 
       let pageQuery = urlParams.get("page") || 1;
- 
+      setPageNum(pageQuery);
       let url = API_URL + "/products?page="+pageQuery;
 
-      let url = API_URL + "/products";
+      // let url = API_URL + "/products";
       let resp = await doApiGet(url);
       // console.log(resp.data);
       setAr(resp.data);
@@ -81,7 +81,7 @@ function ProductsAdminList(props){
       <h1>List of products in system</h1>
       <Link to="/admin/addProduct" className="btn btn-success">Add new product</Link>
       {/* show page buttons */}
-      <PageLinks perPage="5" apiUrlAmount={API_URL+"/products/amount"} urlLinkTo={"/admin/products"} />
+      <PageLinks perPage="5" clsCss={"btn btn-info m-1"} apiUrlAmount={API_URL+"/products/amount"} urlLinkTo={"/admin/products"} />
       <table className='table table-striped'>
         <thead>
           <tr>
@@ -99,7 +99,7 @@ function ProductsAdminList(props){
           {ar.map((item,i) => {
             return(
               <tr key={item._id}>
-                <td>{i+1}</td>
+                <td>{(i+1)+5*(numPage-1)} </td>
                 <td>{item.name}</td>
                 <td>{item.price}</td>
                 <td>{item.qty}</td>
