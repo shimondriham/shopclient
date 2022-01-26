@@ -56,8 +56,8 @@ function EditCategory(props){
  
    return (
      <div className='container'>
-       <AuthAdminComp />
-       <h1>Edit product</h1>
+       <AuthAdminComp /> 
+       <h1>Edit category</h1>
        {(category._id) ? 
        <form onSubmit={handleSubmit(onSubForm)} className='col-md-6 p-3 shadow'>
          <label>Name:</label>

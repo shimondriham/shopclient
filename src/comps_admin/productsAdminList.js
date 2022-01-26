@@ -19,8 +19,6 @@ function ProductsAdminList(props){
   const doApi = async() => {
     // get the product list from server api
 
-
-
     try{
       let url0 = API_URL + "/categories";
       let resp0 = await doApiGet(url0);
@@ -28,10 +26,13 @@ function ProductsAdminList(props){
       let temp_ar = resp0.data;
       // var that will assoiative array with short_id that equal
       // to the category name categories_data["97548"] -> cars
+      // we create it in object and not array for save memeory becuase the short id
+      // can be 999999 and then the system will create 999999 cells in the memory
       let categories_data = {};
       temp_ar.forEach(item => {
         categories_data[item.short_id] = item.name;
       })
+      console.log("cat",categories_data)
       setCatObj(categories_data)
  
       let url = API_URL + "/products";

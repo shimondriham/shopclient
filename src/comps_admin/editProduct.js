@@ -97,7 +97,7 @@ function EditProduct(props) {
           {cat_ar.map(item => {
             return (
               <option key={item._id} value={item.short_id}>{item.name}</option>
-            )
+            ) 
           })}
           {/* loop from api of category */}
         </select>

@@ -9,6 +9,7 @@ import EditCategory from './comps_admin/editCategory';
 import EditProduct from './comps_admin/editProduct';
 import LayoutAdmin from './comps_admin/layoutAdmin';
 import LoginAdmin from './comps_admin/loginAdmin';
+import LogoutAdmin from './comps_admin/logoutAdmin';
 import ProductsAdminList from './comps_admin/productsAdminList';
 import UsersList from './comps_admin/usersList';
 function AppRoute(props){
@@ -25,6 +26,7 @@ function AppRoute(props){
           <Route path="/admin/editCategory/:url_name" element={<EditCategory />}/>
           <Route path="/admin/addcategory" element={<AddCategory />}/>
           <Route path="/admin/users" element={<UsersList />}/>
+          <Route path="/admin/logout" element={<LogoutAdmin />}/>
         </Route>
         {/* For regular user client path */}
         <Route path="/" element={<LayoutClient />}>

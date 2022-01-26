@@ -1,11 +1,11 @@
 import React, { useEffect , useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+// import { Link, useNavigate } from 'react-router-dom';
 import AuthAdminComp from '../misc_comps/authAdminComp';
 import { API_URL, doApiGet, doApiMethod } from '../services/apiService';
 
 function UsersList(props){
   let [ar,setAr] = useState([]);
-  let nav = useNavigate()
+  // let nav = useNavigate()
 
   useEffect(() => {
     doApi()

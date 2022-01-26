@@ -42,7 +42,7 @@ function AddCategory(props){
    return (
      <div className='container'>
        <AuthAdminComp />
-       <h1>Add new product</h1>
+       <h1>Add new category</h1>
        <form onSubmit={handleSubmit(onSubForm)} className='col-md-6 p-3 shadow'>
          <label>Name:</label>
          <input {...nameRef} type="text" className='form-control' />
