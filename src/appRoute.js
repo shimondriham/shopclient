@@ -13,6 +13,7 @@ import LoginAdmin from './comps_admin/loginAdmin';
 import LogoutAdmin from './comps_admin/logoutAdmin';
 import ProductsAdminList from './comps_admin/productsAdminList';
 import UsersList from './comps_admin/usersList';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 function AppRoute(props){
@@ -36,7 +37,8 @@ function AppRoute(props){
           <Route index element={<Home />} />
         </Route> 
       </Routes>
-      <ToastContainer position="top-right" theme="colored"/>
+      {/* theme='colored' make the toast message bg to be red,green... */}
+      <ToastContainer position="top-right" theme='colored' />
     </Router> 
   )
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form"
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import AuthAdminComp from '../misc_comps/authAdminComp';
 import { API_URL, doApiGet, doApiMethod } from '../services/apiService';
 
@@ -51,12 +52,12 @@ function EditProduct(props) {
       let resp = await doApiMethod(url, "PUT", formData);
       // console.log(resp.data);
       if (resp.data.modifiedCount) {
-        alert("Product updated");
+        toast.success("Product updated");
         // back to the list of products in the admin panel
         nav("/admin/products")
       }
       else{
-        alert("You not change nothing for update.")
+        toast.warning("You not change nothing for update.")
       }
     }
     catch (err) {

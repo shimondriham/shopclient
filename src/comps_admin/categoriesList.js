@@ -1,5 +1,6 @@
 import React, { useEffect , useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import AuthAdminComp from '../misc_comps/authAdminComp';
 import { API_URL, doApiGet, doApiMethod } from '../services/apiService';
 
@@ -33,7 +34,7 @@ function CategoriesList(props){
         let resp = await doApiMethod(url,"DELETE",{});
         console.log(resp.data);
         if(resp.data.deletedCount){
-          alert("Category delted !");
+          toast.info("Category delted !");
         }
         // for show the new list without the product that we deleted
         doApi();

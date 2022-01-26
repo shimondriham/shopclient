@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import AuthAdminComp from '../misc_comps/authAdminComp';
+import PageLinks from '../misc_comps/pageLinks';
 import { API_URL, doApiGet, doApiMethod } from '../services/apiService';
 
 
@@ -55,7 +57,7 @@ function ProductsAdminList(props){
         let resp = await doApiMethod(url,"DELETE",{});
         console.log(resp.data);
         if(resp.data.deletedCount){
-          alert("product delted !");
+          toast.info("product delted !");
         }
         // for show the new list without the product that we deleted
         doApi();
@@ -71,8 +73,8 @@ function ProductsAdminList(props){
     <div className='container'>
       <AuthAdminComp />
       <h1>List of products in system</h1>
-      
       <Link to="/admin/addProduct" className="btn btn-success">Add new product</Link>
+      <PageLinks apiUrlAmount={API_URL+"/products/amount"} />
       <table className='table table-striped'>
         <thead>
           <tr>

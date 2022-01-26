@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form"
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import AuthAdminComp from '../misc_comps/authAdminComp';
 import { API_URL, doApiGet, doApiMethod } from '../services/apiService'
 
@@ -27,7 +28,8 @@ function AddCategory(props){
        let resp = await doApiMethod(url, "POST", formData);
        // console.log(resp.data);
        if (resp.data._id) {
-         alert("Category added");
+        
+         toast.success("Category added")
          // back to the list of products in the admin panel
          nav("/admin/categories")
        }

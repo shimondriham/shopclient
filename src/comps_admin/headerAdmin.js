@@ -19,9 +19,8 @@ function HeaderAdmin(props){
         <Link to="/admin/users" >Users</Link>
 
         {/* we cant do nav command to Link comp */}
-        {localStorage["tok"]?
-          <button onClick={onLogOutClick} className='badge bg-danger float-md-end '>Log out</button>
-        :""}
+        {localStorage["tok"] ? 
+        <button onClick={onLogOutClick} className='badge bg-danger float-md-end '>Log out</button> : "" }
       </nav>
     </div> 
   )

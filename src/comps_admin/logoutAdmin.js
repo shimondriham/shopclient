@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { useEffect } from 'react/cjs/react.development';
 
 function LogoutAdmin(props){
@@ -7,6 +8,7 @@ function LogoutAdmin(props){
 
   useEffect(() => {
     localStorage.removeItem("tok");
+    toast.info("You log out from system, see you later")
     nav("/admin");
   },[])
 

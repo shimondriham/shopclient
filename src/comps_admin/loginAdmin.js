@@ -22,16 +22,17 @@ function LoginAdmin(props){
       if(resp.data.token){
         localStorage.setItem("tok",resp.data.token);
         // send user to product list
-        nav("/admin/products")
-        toast.info("welcome back to admin...")
+        nav("/admin/products");
+        toast.info("Welcome back to admin panel!");
       }
       else{
-        alert("There some error come back later...");
+        
+        toast.error("There some error come back later...");
       }
     }
     catch(err){
-      alert(err.response.data.err)
-      // err.response.data -> איסוף טעויות בבקשת אקסיוס
+      toast.error(err.response.data.err);
+      // err.response.data -> collect error with axios
       console.log(err.response.data)
     }
   }

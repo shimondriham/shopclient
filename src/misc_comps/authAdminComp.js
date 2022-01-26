@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { API_URL, doApiGet } from '../services/apiService';
 
 function AuthAdminComp(props){
@@ -11,8 +12,8 @@ function AuthAdminComp(props){
       doApi()
     }
     else{
-      alert("You must be admin to be here! or you need to login again")
-      nav("/admin/logout")
+      toast.error("You must be admin to be here! or you need to login again")
+      nav("/admin")
     }
   },[])
 
@@ -23,7 +24,7 @@ function AuthAdminComp(props){
       // console.log(resp.data);
       // check if the token is of admin
       if(resp.data.role != "admin"){
-        alert("You must be admin to be here! or you need to login again")
+        toast.error("You must be admin to be here! or you need to login again")
         nav("/admin/logout")
       }
     }

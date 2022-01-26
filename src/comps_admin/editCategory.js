@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form"
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import AuthAdminComp from '../misc_comps/authAdminComp';
 import { API_URL, doApiGet, doApiMethod } from '../services/apiService'
 
@@ -39,12 +40,12 @@ function EditCategory(props){
        let resp = await doApiMethod(url, "PUT", formData);
        // console.log(resp.data);
        if (resp.data.modifiedCount) {
-         alert("Category updated");
+         toast.success("Category updated");
          // back to the list of products in the admin panel
          nav("/admin/categories")
        }
        else{
-         alert("you not change nothing")
+         toast.warning("you not change nothing")
        }
      }
      catch (err) {
