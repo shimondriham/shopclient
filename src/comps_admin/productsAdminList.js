@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import AuthAdminComp from '../misc_comps/authAdminComp';
 import PageLinks from '../misc_comps/pageLinks';
@@ -12,11 +12,12 @@ function ProductsAdminList(props){
   let [ar,setAr] = useState([]);
   let [catObj,setCatObj] = useState({})
   let nav = useNavigate();
+  let location = useLocation();
 
   useEffect(() => {
     
     doApi();
-  },[])
+  },[location])
 
   const doApi = async() => {
     // get the product list from server api
@@ -36,7 +37,12 @@ function ProductsAdminList(props){
       })
       console.log("cat",categories_data)
       setCatObj(categories_data)
+      const urlParams = new URLSearchParams(window.location.search);
+      //?page 
+      let pageQuery = urlParams.get("page") || 1;
  
+      let url = API_URL + "/products?page="+pageQuery;
+
       let url = API_URL + "/products";
       let resp = await doApiGet(url);
       // console.log(resp.data);
@@ -74,7 +80,8 @@ function ProductsAdminList(props){
       <AuthAdminComp />
       <h1>List of products in system</h1>
       <Link to="/admin/addProduct" className="btn btn-success">Add new product</Link>
-      <PageLinks apiUrlAmount={API_URL+"/products/amount"} />
+      {/* show page buttons */}
+      <PageLinks perPage="5" apiUrlAmount={API_URL+"/products/amount"} urlLinkTo={"/admin/products"} />
       <table className='table table-striped'>
         <thead>
           <tr>

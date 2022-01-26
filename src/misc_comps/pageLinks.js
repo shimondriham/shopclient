@@ -1,14 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react/cjs/react.development';
-import { doApiGet } from '../services/apiService';
+import { API_URL, doApiGet } from '../services/apiService';
 
 function PageLinks(props){
-  let [pages,setPages] = useState(0)
+  const nav = useNavigate();
+  const [pages,setPages] = useState(0)
 
   useEffect(() => {
 
     doApi()
-  })
+  },[])
 
   const doApi = async() => {
     let url = props.apiUrlAmount;
@@ -18,7 +20,17 @@ function PageLinks(props){
 
 
   return(
-    <div>PageLinks work</div> 
+    <div className='my-3'>
+      <span>page: </span>
+      {/* [...Array(pages)] - createa array from number var that we can do map/loop on him */}
+      {[...Array(pages)].map((item,i) => {
+        return(
+          <button onClick={() => {
+            nav(props.urlLinkTo+"?page="+(i+1))
+          }}>{i + 1}</button>
+        )
+      })}
+    </div> 
   )
 }
 
