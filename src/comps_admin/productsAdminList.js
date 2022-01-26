@@ -13,9 +13,9 @@ function ProductsAdminList(props){
   let [numPage,setPageNum] = useState(1);
   let [catObj,setCatObj] = useState({})
   let nav = useNavigate();
-  let location = useLocation();
-
-  useEffect(() => {  
+  // object with data of the current url page
+  let location = useLocation()
+  useEffect(() => { 
     doApi();
   },[location])
 
@@ -37,13 +37,12 @@ function ProductsAdminList(props){
       })
       console.log("cat",categories_data)
       setCatObj(categories_data)
-      const urlParams = new URLSearchParams(window.location.search);
-      //?page 
-      let pageQuery = urlParams.get("page") || 1;
-      setPageNum(pageQuery);
-      let url = API_URL + "/products?page="+pageQuery;
 
-      // let url = API_URL + "/products";
+      const urlParams = new URLSearchParams(window.location.search);
+      //?page collect query string
+      let pageQuery = urlParams.get("page") || 1;
+      setPageNum(pageQuery)
+      let url = API_URL + "/products?page="+pageQuery;
       let resp = await doApiGet(url);
       // console.log(resp.data);
       setAr(resp.data);
@@ -80,8 +79,14 @@ function ProductsAdminList(props){
       <AuthAdminComp />
       <h1>List of products in system</h1>
       <Link to="/admin/addProduct" className="btn btn-success">Add new product</Link>
-      {/* show page buttons */}
-      <PageLinks perPage="5" clsCss={"btn btn-info m-1"} apiUrlAmount={API_URL+"/products/amount"} urlLinkTo={"/admin/products"} />
+      {/* show page buttons 
+      
+      perPage -> how many items we show per page
+      apiUrlAmount -> url of the api to get the amount of items
+      urlLinkTo -> to where to link on click on page btn
+      clsCss -> class for css for buttons
+      */}
+      <PageLinks perPage="5" apiUrlAmount={API_URL+"/products/amount"} urlLinkTo={"/admin/products"} clsCss="btn btn-info me-1" />
       <table className='table table-striped'>
         <thead>
           <tr>
@@ -99,7 +104,8 @@ function ProductsAdminList(props){
           {ar.map((item,i) => {
             return(
               <tr key={item._id}>
-                <td>{(i+1)+5*(numPage-1)} </td>
+                {/* # - change the id by the page 1-5 , 6-10... */}
+                <td>{(i+1) + 5 * (numPage-1) }</td>
                 <td>{item.name}</td>
                 <td>{item.price}</td>
                 <td>{item.qty}</td>
