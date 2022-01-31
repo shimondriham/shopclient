@@ -15,6 +15,7 @@ function ProductsAdminList(props){
   let nav = useNavigate();
   // object with data of the current url page
   let location = useLocation()
+  
   useEffect(() => { 
     doApi();
   },[location])

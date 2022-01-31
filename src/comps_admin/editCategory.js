@@ -16,7 +16,9 @@ function EditCategory(props){
  
    let nameRef = register("name", { required: true, minLength: 2, maxLength: 150 })
    let url_nameRef = register("url_name", { required: true, minLength: 2, maxLength: 500 })
-  
+   let img_urlRef = register("img_url", { required: true, minLength: 3, maxLength: 500 })
+ 
+   
   useEffect(()=> {
     doApi();
   },[])
@@ -68,7 +70,13 @@ function EditCategory(props){
          <label>url name:</label>
          <input defaultValue={category.url_name} {...url_nameRef} type="text"  className='form-control' />
          {errors.url_name ? <small className='text-danger d-block'>* Enter valid url name, between 1 to 500 chars</small> : ""}
+
+         <label>Image url:</label>
+         <input defaultValue={category.img_url} {...img_urlRef} type="text"  className='form-control' />
+         {errors.img_url ? <small className='text-danger d-block'>* Enter valid url for image, between 1 to 500 chars</small> : ""}
  
+
+
          {/* disable-> if true user cant click */}
          <button className='mt-4 btn btn-warning' disabled={btnSend}>update category</button>
        </form> : <h2>Loading...</h2> }

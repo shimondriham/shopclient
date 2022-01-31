@@ -25,7 +25,7 @@ function PageLinks(props){
       {/* [...Array(pages)] - createa array from number var that we can do map/loop on him */}
       {[...Array(pages)].map((item,i) => {
         return(
-          <button className={props.clsCss} onClick={() => {
+          <button key={i} className={props.clsCss} onClick={() => {
             nav(props.urlLinkTo+"?page="+(i+1))
           }}>{i + 1}</button>
         )
