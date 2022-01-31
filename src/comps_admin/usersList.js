@@ -27,7 +27,7 @@ function UsersList(props){
   }
 
   const delUser = async(_idDel) => {
-    
+    //TODO: del user
   }
 
   // change role user for admin or back to regular user

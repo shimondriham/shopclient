@@ -19,6 +19,7 @@
 
 
     return(
+        <div className='container-fluid shadow '>
       <div className='container py-4 categories_list'>
         <h2 className='text-center'>Choose category of products you want to buy:</h2>
         <div className="row">
@@ -32,7 +33,8 @@
             </article>)
           })}
         </div>
-      </div> 
+      </div>
+     </div>
     )
   }
   
