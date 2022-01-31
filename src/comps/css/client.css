@@ -1,8 +1,6 @@
 .product-item .product-img{
-    min-height: 150px;
-    background:silver;
-    background-size: cover;
-    background-position:center center;  
-  }
-  
-  
+  min-height: 150px;
+  background:silver;
+  background-size: cover;
+  background-position:center center;
+}
