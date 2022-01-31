@@ -31,7 +31,7 @@ function HomeCategoryList(props) {
 
                   <div style={{ backgroundImage: `url(${item.img_url || "/images/cover.jpg"})` }} className='img_card'></div>
                   {/* TODO:Add link */}
-
+                    
                   <h3 className='p-2'>{item.name}</h3>
                 </div>
               </article>)
