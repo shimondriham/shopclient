@@ -13,8 +13,8 @@ import LoginAdmin from './comps_admin/loginAdmin';
 import LogoutAdmin from './comps_admin/logoutAdmin';
 import ProductsAdminList from './comps_admin/productsAdminList';
 import UsersList from './comps_admin/usersList';
-
 import 'react-toastify/dist/ReactToastify.css';
+import ProductsListPage from './comps/productListPage';
 
 function AppRoute(props){
   return(
@@ -35,6 +35,7 @@ function AppRoute(props){
         {/* For regular user client path */}
         <Route path="/" element={<LayoutClient />}>
           <Route index element={<Home />} />
+          <Route path="/products/:cat_url" element={<ProductsListPage/>} />
         </Route> 
       </Routes>
       {/* theme='colored' make the toast message bg to be red,green... */}
