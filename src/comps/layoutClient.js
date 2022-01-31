@@ -3,9 +3,9 @@ import { Outlet } from 'react-router-dom';
 
 function LayoutClient(props){
   return(
-    <div>
+    <React.Fragment>
       <Outlet />
-    </div> 
+    </React.Fragment> 
   )
 }
 
