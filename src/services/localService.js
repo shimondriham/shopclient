@@ -8,14 +8,15 @@ export const addProdVisitedToLocal = (_short_id) => {
     // split - like parse of JSON for primtive array
     let local_ar = localStorage[VISITED_PRODUCT] ? localStorage[VISITED_PRODUCT].split(",") : [];
     // add new cell in array in the start
+    if(!local_ar.includes(_short_id)){
     local_ar.unshift(_short_id);
     // for save only 4 products
     local_ar.splice(4, local_ar.length);
     console.log(local_ar)
     // Primitive array cant do stringfy or parse , need to use split or join 
     // join like stringfy of JSON just for primitive array
-    localStorage.setItem(VISITED_PRODUCT, local_ar.join(","));
-  
+    localStorage.setItem(VISITED_PRODUCT, local_ar.join(","));    
+    } 
   }
 
   export const checkVisitedLocal = () => {

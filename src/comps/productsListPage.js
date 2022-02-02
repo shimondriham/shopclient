@@ -30,9 +30,10 @@ function ProductsListPage(props){
   }
 // TODO: ADD PAGENATION
   return(
-    <div className='container-fluid'>
+    <div className='container-fluid' style={{minHeigth:"90vh"}}>
       <div className="container">
         <h1 className='text-center'>Categories of {params.cat_url}</h1>
+        {ar.length == 0 ? <h2>Loading...</h2> : ""}
         <div className="row">
         {ar.map(item => {
           return(
