@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { API_URL, doApiGet } from '../services/apiService';
-import { checkVisitedLocal } from '../services/localService';
+import { checkVisitedLocal, VISITED_PRODUCT } from '../services/localService';
 import ProducItem from './productItem';
 
 function ProductsHome(props){
@@ -28,7 +28,12 @@ function ProductsHome(props){
 
   return(
     <div className='container py-4'>
-      <h2 className='text-center'>New products in our store</h2>
+      {localStorage[VISITED_PRODUCT] ? 
+        <h2 className='text-center text-info'>Products you intersted in</h2> :
+      <h2 className='text-center'>
+        New products in our store
+      </h2>
+    }
       <div className="row">
         {ar.map(item => {
           return(
