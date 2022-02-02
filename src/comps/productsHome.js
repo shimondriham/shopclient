@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { API_URL, doApiGet } from '../services/apiService';
+import { checkVisitedLocal } from '../services/localService';
 import ProducItem from './productItem';
 
 function ProductsHome(props){
@@ -10,8 +11,15 @@ function ProductsHome(props){
   },[])
 
   const doApi = async() => {
-    // TODO check in local and get products that user click on
-    let url = API_URL+"/products?perPage=4";
+    // check if there products saved in the local that user visited in
+    let vistedProds = checkVisitedLocal();
+    let url;
+    if(vistedProds){
+     url = API_URL+"/products/visited?visited="+vistedProds;
+    }
+    else{
+      url = API_URL+"/products?perPage=4";
+    }
     let resp = await doApiGet(url);
     console.log(resp.data);
     setAr(resp.data);

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { API_URL, doApiGet } from '../services/apiService';
+import { addProdVisitedToLocal } from '../services/localService';
 
 function ProductInfo(props){
   const [product,setProduct] = useState({});
@@ -16,6 +17,8 @@ function ProductInfo(props){
     let resp = await doApiGet(url);
     console.log(resp.data);
      setProduct(resp.data)
+    //  save in visited in local
+     addProdVisitedToLocal(resp.data.short_id)
   }
 
   return(
