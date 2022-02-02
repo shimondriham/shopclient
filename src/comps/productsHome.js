@@ -10,6 +10,7 @@ function ProductsHome(props){
   },[])
 
   const doApi = async() => {
+    // TODO check in local and get products that user click on
     let url = API_URL+"/products?perPage=4";
     let resp = await doApiGet(url);
     console.log(resp.data);

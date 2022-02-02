@@ -14,6 +14,7 @@ import LogoutAdmin from './comps_admin/logoutAdmin';
 import ProductsAdminList from './comps_admin/productsAdminList';
 import UsersList from './comps_admin/usersList';
 import ProductsListPage from "./comps/productsListPage";
+import ProductInfo from './comps/productInfo';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -37,6 +38,7 @@ function AppRoute(props){
         <Route path="/" element={<LayoutClient />}>
           <Route index element={<Home />} />
           <Route path="/products/:cat_url" element={<ProductsListPage />}  />
+          <Route path="/productInfo/:id" element={<ProductInfo />}  />
         </Route> 
       </Routes>
       {/* theme='colored' make the toast message bg to be red,green... */}

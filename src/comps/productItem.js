@@ -12,7 +12,7 @@ function ProducItem(props) {
           <h4>{item.name}</h4>
           <div>Price: {item.price} NIS</div>
           <div className='text-center my-2'>
-            <Link className='btn btn-dark w-50' to="#">More info</Link>
+            <Link className='btn btn-dark w-50' to={"/productInfo/"+item._id}>More info</Link>
           </div>
         </div>
       </div>

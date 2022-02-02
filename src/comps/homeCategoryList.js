@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { API_URL, doApiGet } from '../services/apiService';
 
 
@@ -25,7 +26,7 @@ function HomeCategoryList(props) {
         <div className="row">
           {ar.map(item => {
             return (
-              <article key={item._id} className='myCard col-md-4 p-3'>
+              <Link to={"/products/"+item.url_name} key={item._id} className='myCard col-md-4 p-3'>
                 <div className="shadow  bg-dark text-white">
                   {/* check if there bg image  */}
 
@@ -34,7 +35,7 @@ function HomeCategoryList(props) {
                     
                   <h3 className='p-2'>{item.name}</h3>
                 </div>
-              </article>)
+              </Link>)
           })}
         </div>
       </div>

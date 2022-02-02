@@ -26,7 +26,7 @@ function ProductsListPage(props){
     // console.log(resp2.data);
 
     setAr(resp2.data)
-
+    
   }
 // TODO: ADD PAGENATION
   return(

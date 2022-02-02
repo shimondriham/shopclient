@@ -1,0 +1,44 @@
+.header-client{
+  min-height: 60px;
+  background:white;
+  position: relative;
+  /* for z-index work we must add position:realtive prop */
+  z-index: 999;
+
+}
+
+.header-client .container , .header-client .row{
+  min-height: inherit;
+}
+
+.header-client .logo a{
+  color:grey;
+  text-decoration: none;
+}
+
+.header-client nav  a{
+  color:rgb(75, 75, 75);
+  padding:0 12px;
+  text-decoration: none;
+}
+
+.header-client nav  a:hover{
+  color:purple;
+  text-decoration: underline;
+}
+
+.header-client nav .search_header .btn{
+  /* border:1px solid silver; */
+  padding-bottom: 10px;
+}
+
+.header-client .icon1{
+  color:rgb(75, 75, 75);
+}
+
+
+.footer-client{
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+}
