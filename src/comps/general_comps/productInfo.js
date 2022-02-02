@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { addProdVisitedToLocal } from '../services/localService';
 import { API_URL, doApiGet } from '../services/apiService';
 
 function ProductInfo(props){
@@ -16,6 +17,7 @@ function ProductInfo(props){
     let resp = await doApiGet(url);
     console.log(resp.data);
      setProduct(resp.data)
+     addProdVisitedToLocal(resp.data.short_)
   }
 
   return(
