@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { API_URL, doApiMethod } from '../../services/apiService';
 
-function SignUpClient(props) {
+function LogInClient(props){
   let nav = useNavigate()
   let { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -35,42 +35,30 @@ function SignUpClient(props) {
     }
   }
 
+  let emailRef = register("email", {
+    required: true,
+    pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+  })
+  
+  let passwordRef = register("password", { required: true, minLength: 3 });
 
-let nameRef = register("name", { required: true, minLength: 2 });
-let emailRef = register("email", {
-  required: true,
-  pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
-})
-
-let passwordRef = register("password", { required: true, minLength: 3 });
-let addressRef = register("address", { required: false, minLength: 2 });
-let phoneRef = register("phone", { required: false, minLength: 9 });
-
-
-return (
-  <div className='container col-md-6 mx-auto my-5'>
-    <h1>Sign up to the store</h1>
+  return(
+    <div className='container col-md-6 mx-auto my-5'>
+    <h1>Login to the store</h1>
     <form onSubmit={handleSubmit(onSubForm)} className='col-12 p-3 border'>
-      <label>* Name:</label>
-      <input {...nameRef} type="text" className='form-control' />
-      {errors.name ? <small className='text-danger d-block'>* Enter valid name, min 2 chars</small> : ""}
+     
       <label>* Email:</label>
       <input {...emailRef} type="text" className='form-control' />
       {errors.email ? <small className='text-danger d-block'>* Email invalid</small> : ""}
       <label>* Password:</label>
       <input {...passwordRef} type="text" className='form-control' />
       {errors.password ? <small className='text-danger d-block'>* Enter valid password, min 3 chars</small> : ""}
-      <label>Address:</label>
-      <input {...addressRef} type="text" className='form-control' />
-      {errors.address ? <small className='text-danger d-block'>* Enter valid address, min 2 chars</small> : ""}
-      <label>Phone:</label>
-      <input {...phoneRef} type="text" className='form-control' />
-      {errors.phone ? <small className='text-danger d-block'>* Enter valid phone number, min 9 numbers</small> : ""}
+      
 
-      <button className='btn btn-info mt-4'>Sign up</button>
+      <button className='btn btn-success mt-5'>Log in</button>
     </form>
-  </div>
-)
+  </div> 
+  )
 }
 
-export default SignUpClient
+export default LogInClient
