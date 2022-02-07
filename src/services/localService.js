@@ -3,26 +3,28 @@ export const VISITED_PRODUCT = "visitedProduct";
 
 
 export const addProdVisitedToLocal = (_short_id) => {
-    // if there local of products local_ar equal to the data in local if not equal to new array
-    // Primitive array cant do stringfy or parse , need to use split or join
-    // split - like parse of JSON for primtive array
-    let local_ar = localStorage[VISITED_PRODUCT] ? localStorage[VISITED_PRODUCT].split(",") : [];
+  // if there local of products local_ar equal to the data in local if not equal to new array
+  // Primitive array cant do stringfy or parse , need to use split or join
+  // split - like parse of JSON for primtive array
+  let local_ar = localStorage[VISITED_PRODUCT] ? localStorage[VISITED_PRODUCT].split(",") : [];
+  // check if id already in local 
+  if (!local_ar.includes(_short_id)) {
     // add new cell in array in the start
-    if(!local_ar.includes(_short_id)){
     local_ar.unshift(_short_id);
     // for save only 4 products
     local_ar.splice(4, local_ar.length);
-    console.log(local_ar)
+    // console.log(local_ar)
     // Primitive array cant do stringfy or parse , need to use split or join 
     // join like stringfy of JSON just for primitive array
-    localStorage.setItem(VISITED_PRODUCT, local_ar.join(","));    
-    } 
+    localStorage.setItem(VISITED_PRODUCT, local_ar.join(","));
   }
+}
 
-  export const checkVisitedLocal = () => {
-    if(localStorage[VISITED_PRODUCT]){
-      return localStorage[VISITED_PRODUCT];
-    }
-    return null;
+// return the shorts_id of products we visited as string for 
+// URL to api request
+export const checkVisitedLocal = () => {
+  if (localStorage[VISITED_PRODUCT]) {
+    return localStorage[VISITED_PRODUCT];
   }
-  
+  return null;
+}

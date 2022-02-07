@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { API_URL, doApiGet } from '../services/apiService';
 import { addProdVisitedToLocal } from '../services/localService';
+import InfoProductsList from './infoProductsList';
 
 function ProductInfo(props){
   const [product,setProduct] = useState({});
   let params = useParams();
   let nav = useNavigate();
+  let location = useLocation();
 
   useEffect(() => {
     doApi();
-  },[])
+  },[location])
 
   const doApi = async() => {
     let url = API_URL + "/products/single/"+params.id;
@@ -39,6 +41,9 @@ function ProductInfo(props){
           }} className='btn btn-dark'>Back</button>
         </div>
       </div>
+      {product.cat_short_id ? 
+      <InfoProductsList cat_short_id={product.cat_short_id} />
+      : "" }
     </div> 
   )
 }
