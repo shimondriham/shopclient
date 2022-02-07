@@ -13,27 +13,21 @@ function LogInClient(props){
     console.log(data);
     doApi(data)
   }
+
   const doApi = async (_dataBody) => {
-    let url = API_URL + "/users/";
+    let url = API_URL + "/users/login";
     try {
       let resp = await doApiMethod(url, "POST", _dataBody);
-      if (resp.data._id) {
-        toast.success("You sign up");
-        // TODO: nav to login
+      if (resp.data.token) {
+        toast.success("You logged in");
+        // TODO: nav to to home page
       }
     }
-    catch(err){
-      if(err.response.data.code == 11000){
-          toast.error("Email already in system , try log in")
-      }
-      else{
-        alert("There problem , try come back later")
-      }
-      // if(err.responose.code == 11000){
-      // }
-      // console.log(err)
+    catch(err){   
+      alert("User password not match, or there another problem")   
     }
   }
+
 
   let emailRef = register("email", {
     required: true,

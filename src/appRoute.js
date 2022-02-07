@@ -18,7 +18,7 @@ import ProductInfo from './comps/productInfo';
 
 import 'react-toastify/dist/ReactToastify.css';
 import SignUpClient from './comps/users_comps/signupClient';
-import LogInClient from './comps/users_comps/LogInClient';
+import LogInClient from './comps/users_comps/loginClient';
 
 function AppRoute(props){
   return(
