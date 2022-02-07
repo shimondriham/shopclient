@@ -1,8 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { BsSearch } from "react-icons/bs"
+import { checkTokenLocal } from '../../services/localService';
 
 function ClientHeader(props) {
+  let [login,setLogin] = useState("");
+  let location = useLocation();
+
+  useEffect(() => {
+    setLogin(checkTokenLocal())
+  },[location])
+
+
   return (
     <header className='shadow header-client container-fluid'>
       <div className="container">
@@ -23,9 +32,16 @@ function ClientHeader(props) {
                 <input placeholder='search...' type="text" className='form-control' />
                 <button className='btn'><BsSearch className='icon1' /></button>
               </div>
+
               <div className='log_in_out'>
-                <Link to="#">Log in</Link>/
-                <Link to="#">Sign up</Link>
+                {login ?
+                  <Link to="/logout" className='text-danger'>Log out</Link>
+                  :
+                  <React.Fragment>
+                    <Link to="/login">Log in</Link>/
+                    <Link to="/signup">Sign up</Link>
+                  </React.Fragment>
+                }
               </div>
             </div>
           </nav>

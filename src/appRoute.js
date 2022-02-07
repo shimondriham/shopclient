@@ -19,6 +19,7 @@ import ProductInfo from './comps/productInfo';
 import 'react-toastify/dist/ReactToastify.css';
 import SignUpClient from './comps/users_comps/signupClient';
 import LogInClient from './comps/users_comps/loginClient';
+import LogoutClient from './comps/users_comps/logoutClient';
 
 function AppRoute(props){
   return(
@@ -43,6 +44,7 @@ function AppRoute(props){
           <Route path="/productInfo/:id" element={<ProductInfo />}  />
           <Route path="/signup" element={<SignUpClient />}  />
           <Route path="/login" element={<LogInClient />}  />
+          <Route path="/logout" element={<LogoutClient />}  />
         </Route> 
       </Routes>
       {/* theme='colored' make the toast message bg to be red,green... */}

@@ -1,6 +1,23 @@
 // save short ids of products we visited in to show after in the home page
 export const VISITED_PRODUCT = "visitedProduct";
+export const SHOP_TOKEN = "shop_token";
 
+export const saveTokenLocal = (_token) => {
+  localStorage.setItem(SHOP_TOKEN, _token);
+}
+
+export const checkTokenLocal = () => {
+  if(localStorage[SHOP_TOKEN]){
+    return localStorage[SHOP_TOKEN];
+  }
+  else{
+    return false;
+  }
+}
+
+export const deleteToken = () => {
+  localStorage.removeItem(SHOP_TOKEN)
+}
 
 export const addProdVisitedToLocal = (_short_id) => {
   // if there local of products local_ar equal to the data in local if not equal to new array

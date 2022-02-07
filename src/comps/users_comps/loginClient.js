@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { API_URL, doApiMethod } from '../../services/apiService';
+import { saveTokenLocal } from '../../services/localService';
 
 function LogInClient(props){
   let nav = useNavigate()
@@ -13,21 +14,25 @@ function LogInClient(props){
     console.log(data);
     doApi(data)
   }
-
   const doApi = async (_dataBody) => {
     let url = API_URL + "/users/login";
     try {
       let resp = await doApiMethod(url, "POST", _dataBody);
       if (resp.data.token) {
         toast.success("You logged in");
-        // TODO: nav to to home page
+        saveTokenLocal(resp.data.token);
+        nav("/");
+        // TODO: nav to to home page and save in localstorage
       }
     }
-    catch(err){   
-      alert("User password not match, or there another problem")   
+    catch(err){
+      
+      
+      alert("User password not match, or there another problem")
+      
+      
     }
   }
-
 
   let emailRef = register("email", {
     required: true,

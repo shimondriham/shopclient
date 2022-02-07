@@ -19,7 +19,7 @@ function SignUpClient(props) {
       let resp = await doApiMethod(url, "POST", _dataBody);
       if (resp.data._id) {
         toast.success("You sign up");
-        // TODO: nav to login
+        nav("/login");
       }
     }
     catch(err){
