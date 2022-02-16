@@ -1,15 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { BsSearch } from "react-icons/bs"
 import { checkTokenLocal } from '../../services/localService';
 
 function ClientHeader(props) {
   let [login,setLogin] = useState("");
+  let inputRef = useRef()
   let location = useLocation();
+  let nav = useNavigate()
 
   useEffect(() => {
     setLogin(checkTokenLocal())
   },[location])
+
+ const onKeyBordClick = (e) => {
+    if(e.key=="Enter"){
+      onSearchClick()
+    }
+  }
+
+  const onSearchClick = () => {
+    let input_val = inputRef.current.value;
+    nav("/productsSearch?s="+input_val);
+  }
+ 
 
 
   return (
@@ -29,8 +43,8 @@ function ClientHeader(props) {
                 <Link to="/products_favs">Favorites</Link>
               </div>
               <div className='search_header d-flex'>
-                <input placeholder='search...' type="text" className='form-control' />
-                <button className='btn'><BsSearch className='icon1' /></button>
+                <input onKeyDown={onKeyBordClick} ref={inputRef} placeholder='search...' type="text" className='form-control' />
+                <button onClick={onSearchClick} className='btn'><BsSearch className='icon1' /></button>
               </div>
 
               <div className='log_in_out'>

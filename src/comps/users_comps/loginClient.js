@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from "react-hook-form"
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { API_URL, doApiMethod } from '../../services/apiService';
 import { saveTokenLocal } from '../../services/localService';
+import {AppContext} from "../../context/shopContext"
 
 function LogInClient(props){
+  const {doFavApi} = useContext(AppContext)
+
   let nav = useNavigate()
   let { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -22,7 +25,7 @@ function LogInClient(props){
         toast.success("You logged in");
         saveTokenLocal(resp.data.token);
         nav("/");
-       
+        doFavApi();
       }
     }
     catch(err){

@@ -13,7 +13,7 @@ function LayoutClient(props) {
 
   useEffect(() => {
     doFavApi()
-  },[])
+  }, [])
 
   // get data and add to global favs_ar state favs of currenct user
   const doFavApi = async () => {
@@ -29,6 +29,10 @@ function LayoutClient(props) {
       catch (err) {
         console.log(err.response)
       }
+    }
+    else{
+      // if user not logged in will erase all favorite in the memory like in log out
+      setFavsAr([])
     }
   }
 // add or remove from favorites of user

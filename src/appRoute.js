@@ -21,6 +21,8 @@ import SignUpClient from './comps/users_comps/signupClient';
 import LogInClient from './comps/users_comps/loginClient';
 import LogoutClient from './comps/users_comps/logoutClient';
 import FavsProducts from './comps/users_comps/favsProducts';
+import SearchProducts from './comps/searchProducts';
+import Page404 from './comps/general_comps/page404';
 
 function AppRoute(props){
   return(
@@ -42,11 +44,13 @@ function AppRoute(props){
         <Route path="/" element={<LayoutClient />}>
           <Route index element={<Home />} />
           <Route path="/products/:cat_url" element={<ProductsListPage />}  />
+          <Route path="/productsSearch/" element={<SearchProducts />}  />
           <Route path="/productInfo/:id" element={<ProductInfo />}  />
           <Route path="/signup" element={<SignUpClient />}  />
           <Route path="/login" element={<LogInClient />}  />
           <Route path="/logout" element={<LogoutClient />}  />
           <Route path="/products_favs" element={<FavsProducts />}  />
+          <Route path="/*" element={<Page404/>}  />
         </Route> 
       </Routes>
       {/* theme='colored' make the toast message bg to be red,green... */}
