@@ -26,7 +26,7 @@ function ClientHeader(props) {
               <div className='links_header me-md-3'>
                 <Link to="/">Home</Link>
                 <Link to="#">Carts</Link>
-                <Link to="#">Favorites</Link>
+                <Link to="/products_favs">Favorites</Link>
               </div>
               <div className='search_header d-flex'>
                 <input placeholder='search...' type="text" className='form-control' />

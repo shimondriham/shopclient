@@ -22,13 +22,13 @@ function LogInClient(props){
         toast.success("You logged in");
         saveTokenLocal(resp.data.token);
         nav("/");
-        // TODO: nav to to home page and save in localstorage
+       
       }
     }
     catch(err){
       
       
-      alert("User password not match, or there another problem")
+      toast.error("User password not match, or there another problem")
       
       
     }

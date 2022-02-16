@@ -1,6 +1,6 @@
 // save short ids of products we visited in to show after in the home page
 export const VISITED_PRODUCT = "visitedProduct";
-export const SHOP_TOKEN = "shop_token";
+export const SHOP_TOKEN = "tok";
 
 export const saveTokenLocal = (_token) => {
   localStorage.setItem(SHOP_TOKEN, _token);
