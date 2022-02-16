@@ -7,9 +7,16 @@ import { toast } from 'react-toastify';
 import { API_URL, doApiGet, doApiMethod } from '../services/apiService';
 import "./css/client.css"
 import "./css/headerFooter.css"
+import Cart from './cart_comps/cart';
 
 function LayoutClient(props) {
   const [favs_ar, setFavsAr] = useState([]);
+
+  // cart global state
+  const [cart_ar,setCartAr] = useState([]);
+  const [showCart, setShowCart] = useState("none");
+
+
 
   useEffect(() => {
     doFavApi()
@@ -55,7 +62,18 @@ function LayoutClient(props) {
   }
 
   return (
-    <AppContext.Provider value={{favs_ar,addRemoveFav,doFavApi}}>
+    <AppContext.Provider value={
+      {
+        favs_ar,
+        addRemoveFav,
+        doFavApi,
+        showCart,
+        setShowCart,
+        cart_ar,
+        setCartAr
+    }
+      }>
+      <Cart />
       <ClientHeader />
       <Outlet />
       <ClientFooter />
