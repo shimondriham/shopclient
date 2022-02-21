@@ -49,6 +49,7 @@ function ClientHeader(props) {
               <div className='search_header d-flex'>
                 <input onKeyDown={onKeyboardClick} ref={inputRef} placeholder='search...' type="text" className='form-control' />
                 <button onClick={onSearchClick} className='btn'><BsSearch className='icon1' /></button>
+               {/* cart button */}
                 <button onClick={() => { showCart === "none" ? setShowCart("block") : setShowCart("none")}} className='btn'><BsCart3 className='icon1' /></button>
               </div>
 

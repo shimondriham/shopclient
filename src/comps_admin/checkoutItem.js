@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 function CheckoutItem(props){
+  let nav = useNavigate();
   let item = props.item;
   return(
     <tr>
@@ -12,7 +14,9 @@ function CheckoutItem(props){
       <td>{item.products_ar.length}</td>
       <td>
         <button className='badge bg-danger'>del</button>
-        <button className='badge bg-info'>info</button>
+        <button onClick={() => {
+          nav("/admin/checkoutInfo/"+item._id);
+        }} to="/" className='badge bg-info'>info</button>
       </td>
     </tr> 
   )

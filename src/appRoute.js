@@ -41,8 +41,8 @@ function AppRoute(props){
           <Route path="/admin/addcategory" element={<AddCategory />}/>
           <Route path="/admin/users" element={<UsersList />}/>
           <Route path="/admin/logout" element={<LogoutAdmin />}/>
-          <Route path="/admin/checkout" element={<CheckoutListAdmin/>}/>
-          <Route path="/admin/checkoutInfo/:id" element={<CheckoutInfo/>}/>
+          <Route path="/admin/checkout" element={<CheckoutListAdmin />}/>
+          <Route path="/admin/checkoutInfo/:id" element={<CheckoutInfo />}/>
         </Route>
         {/* For regular user client path */}
         <Route path="/" element={<LayoutClient />}>

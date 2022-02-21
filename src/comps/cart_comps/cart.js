@@ -5,18 +5,17 @@ import {AppContext} from "../../context/shopContext"
 
 function Cart(props){
   const [total,setTotal] = useState(0);
+
   const {showCart,setShowCart,cart_ar} = useContext(AppContext);
 
 //  calc the total
-useEffect(()=>{
-  let sumTotal = 0;
-  cart_ar.forEach(item => {
-    sumTotal += item.price;
-  })
-  setTotal(sumTotal)
-},[cart_ar])
-
-
+  useEffect(()=>{
+    let sumTotal = 0;
+    cart_ar.forEach(item => {
+      sumTotal += item.price;
+    })
+    setTotal(sumTotal)
+  },[cart_ar])
 
   return(
     <div style={{display:showCart}} className='cart'>

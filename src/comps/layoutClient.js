@@ -8,26 +8,27 @@ import { API_URL, doApiGet, doApiMethod } from '../services/apiService';
 import "./css/client.css"
 import "./css/headerFooter.css"
 import Cart from './cart_comps/cart';
-import { saveCartLocal, getCartFromLocal } from '../services/localService';
+import { getCartFromLocal, saveCartLocal } from '../services/localService';
 
 function LayoutClient(props) {
   const [favs_ar, setFavsAr] = useState([]);
 
   // cart global state
-  const [cart_ar, setCartAr] = useState([]);
+  const [cart_ar,setCartAr] = useState([]);
   const [showCart, setShowCart] = useState("none");
 
 
 
   useEffect(() => {
     doFavApi()
+    // get cart from local
     setCartAr(getCartFromLocal());
   }, [])
 
   const updateCart = (_newAr) => {
     setCartAr(_newAr);
     // TODO: add to localstorage
-    saveCartLocal(_newAr)
+    saveCartLocal(_newAr);
   }
 
   // add cart , but before check it the item already
@@ -35,13 +36,13 @@ function LayoutClient(props) {
   const addToCart = (_newItem) => {
     let inCart = false;
     cart_ar.map(item => {
-      if (item._id == _newItem._id) {
+      if(item._id == _newItem._id){
         inCart = true;
       }
     })
     // check if not in cart already and add it if not
-    if (!inCart) {
-      updateCart([...cart_ar, _newItem])
+    if(!inCart){
+      updateCart([...cart_ar,_newItem])
     }
     setShowCart("block");
   }
@@ -61,18 +62,18 @@ function LayoutClient(props) {
         console.log(err.response)
       }
     }
-    else {
+    else{
       // if user not logged in will erase all favorite in the memory like in log out
       setFavsAr([])
     }
   }
-  // add or remove from favorites of user
-  const addRemoveFav = async (_short_id) => {
+// add or remove from favorites of user
+  const addRemoveFav = async(_short_id) => {
     if (localStorage["tok"]) {
-      let url = API_URL + "/favs/add_remove/" + _short_id;
-      try {
-        let resp = await doApiMethod(url, "PATCH", {})
-        if (resp.data.modifiedCount) {
+      let url = API_URL+"/favs/add_remove/"+_short_id;
+      try{
+        let resp = await doApiMethod(url,"PATCH",{})
+        if(resp.data.modifiedCount){
           // alert("add_remove_fav")
           // call again foo the fo FavApi to update in the ui the new change
           doFavApi()
@@ -83,12 +84,10 @@ function LayoutClient(props) {
         toast.info("There error try again later")
       }
     }
-    else {
+    else{
       toast.error("You must be logged in to add to favorite!");
     }
   }
-
-
 
   return (
     <AppContext.Provider value={
@@ -102,7 +101,7 @@ function LayoutClient(props) {
         updateCart,
         addToCart
       }
-    }>
+      }>
       <Cart />
       <ClientHeader />
       <Outlet />
