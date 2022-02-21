@@ -1,20 +1,19 @@
 .cart{
-    position: fixed;
-    width:100%;
-    max-width: 400px;
-    height: 50vh;
-  
-    background: white;
-    border:1px solid silver;
-    right:12px;
-    top:72px;
-    z-index: 9999;
-    overflow-y: scroll;
-  }
-  
-  .cart .close-btn{
-    top:10px;
-    right:10px;
-    position: absolute;
-  }
-  
+  position: fixed;
+  width:100%;
+  max-width: 400px;
+  height: 50vh;
+
+  background: white;
+  border:1px solid silver;
+  right:12px;
+  top:72px;
+  z-index: 9999;
+  overflow-y: scroll;
+}
+
+.cart .close-btn{
+  top:10px;
+  right:10px;
+  position: absolute;
+}

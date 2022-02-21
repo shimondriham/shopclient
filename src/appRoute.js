@@ -50,7 +50,8 @@ function AppRoute(props){
           <Route path="/login" element={<LogInClient />}  />
           <Route path="/logout" element={<LogoutClient />}  />
           <Route path="/products_favs" element={<FavsProducts />}  />
-          <Route path="/*" element={<Page404/>}  />
+         {/* * - for any url that not in another route go to 404 */}
+          <Route path="/*" element={<Page404 />} />
         </Route> 
       </Routes>
       {/* theme='colored' make the toast message bg to be red,green... */}

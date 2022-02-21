@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { API_URL, doApiGet } from '../services/apiService';
 import { addProdVisitedToLocal } from '../services/localService';
 import InfoProductsList from './infoProductsList';
+import { BsCart3} from "react-icons/bs"
+import {AppContext} from "../context/shopContext"
 
 function ProductInfo(props){
+  const {addToCart } = useContext(AppContext);
   const [product,setProduct] = useState({});
   let params = useParams();
   let nav = useNavigate();
@@ -23,6 +26,12 @@ function ProductInfo(props){
      addProdVisitedToLocal(resp.data.short_id)
   }
 
+  const onAddToCartClick = () => {
+    // ...cart_ar - take all cell from the old and add new
+    // product
+    addToCart(product)
+  }
+
   return(
     <div className='container p-4' style={{minHeight:"85vh"}}>
       <div className="row">
@@ -39,6 +48,9 @@ function ProductInfo(props){
           <button onClick={() => {
             nav(-1);
           }} className='btn btn-dark'>Back</button>
+          <button onClick={onAddToCartClick} className="btn btn-info ms-2">Add to cart 
+          <BsCart3 className="ms-2 mb-1"/>+
+          </button>
         </div>
       </div>
       {product.cat_short_id ? 

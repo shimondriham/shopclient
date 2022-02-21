@@ -1,9 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { BsSearch } from "react-icons/bs"
+import { BsSearch, BsCart3} from "react-icons/bs"
+
 import { checkTokenLocal } from '../../services/localService';
+import {AppContext} from "../../context/shopContext"
 
 function ClientHeader(props) {
+  const {showCart,setShowCart} = useContext(AppContext)
   let [login,setLogin] = useState("");
   let inputRef = useRef()
   let location = useLocation();
@@ -13,9 +16,11 @@ function ClientHeader(props) {
     setLogin(checkTokenLocal())
   },[location])
 
- const onKeyBordClick = (e) => {
-    if(e.key=="Enter"){
-      onSearchClick()
+  // work on every key click on the keyboard
+  const onKeyboardClick = (e) => {
+    // check if we click Enter 
+    if(e.key == "Enter"){
+      onSearchClick();
     }
   }
 
@@ -23,7 +28,6 @@ function ClientHeader(props) {
     let input_val = inputRef.current.value;
     nav("/productsSearch?s="+input_val);
   }
- 
 
 
   return (
@@ -43,8 +47,9 @@ function ClientHeader(props) {
                 <Link to="/products_favs">Favorites</Link>
               </div>
               <div className='search_header d-flex'>
-                <input onKeyDown={onKeyBordClick} ref={inputRef} placeholder='search...' type="text" className='form-control' />
+                <input onKeyDown={onKeyboardClick} ref={inputRef} placeholder='search...' type="text" className='form-control' />
                 <button onClick={onSearchClick} className='btn'><BsSearch className='icon1' /></button>
+                <button onClick={() => { showCart === "none" ? setShowCart("block") : setShowCart("none")}} className='btn'><BsCart3 className='icon1' /></button>
               </div>
 
               <div className='log_in_out'>

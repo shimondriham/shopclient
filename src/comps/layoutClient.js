@@ -8,6 +8,7 @@ import { API_URL, doApiGet, doApiMethod } from '../services/apiService';
 import "./css/client.css"
 import "./css/headerFooter.css"
 import Cart from './cart_comps/cart';
+import { saveCartLocal,getCartFromLocal } from '../services/localService';
 
 function LayoutClient(props) {
   const [favs_ar, setFavsAr] = useState([]);
@@ -20,7 +21,30 @@ function LayoutClient(props) {
 
   useEffect(() => {
     doFavApi()
+    setCartAr(getCartFromLocal());
   }, [])
+
+  const updateCart = (_newAr) => {
+    setCartAr(_newAr);
+    // TODO: add to localstorage
+    saveCartLocal(_newAr)
+  }
+
+  // add cart , but before check it the item already
+  // in the cart
+  const addToCart = (_newItem) => {
+    let inCart = false;
+    cart_ar.map(item => {
+      if(item._id == _newItem._id){
+        inCart = true;
+      }
+    })
+    // check if not in cart already and add it if not
+    if(!inCart){
+      updateCart([...cart_ar,_newItem])
+    }
+    setShowCart("block");
+  }
 
   // get data and add to global favs_ar state favs of currenct user
   const doFavApi = async () => {
@@ -70,8 +94,9 @@ function LayoutClient(props) {
         showCart,
         setShowCart,
         cart_ar,
-        setCartAr
-    }
+        updateCart,
+        addToCart
+      }
       }>
       <Cart />
       <ClientHeader />

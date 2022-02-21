@@ -6,7 +6,7 @@ import ProducItem from './productItem';
 function SearchProducts(props){
   const [ar,setAr] = useState([]); 
   const [whatSearch,setWhatSearch] = useState("");
-  const [showLoading, setShowLoading] = useState(true)
+  const [showLoading, setShowLoading] = useState(true);
   let location = useLocation();
   
   useEffect(() => {
