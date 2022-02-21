@@ -23,6 +23,8 @@ import LogoutClient from './comps/users_comps/logoutClient';
 import FavsProducts from './comps/users_comps/favsProducts';
 import SearchProducts from './comps/searchProducts';
 import Page404 from './comps/general_comps/page404';
+import CheckoutListAdmin from './comps_admin/checkoutListAdmin';
+import CheckoutInfo from './comps_admin/checkoutInfo';
 
 function AppRoute(props){
   return(
@@ -39,6 +41,8 @@ function AppRoute(props){
           <Route path="/admin/addcategory" element={<AddCategory />}/>
           <Route path="/admin/users" element={<UsersList />}/>
           <Route path="/admin/logout" element={<LogoutAdmin />}/>
+          <Route path="/admin/checkout" element={<CheckoutListAdmin/>}/>
+          <Route path="/admin/checkoutInfo/:id" element={<CheckoutInfo/>}/>
         </Route>
         {/* For regular user client path */}
         <Route path="/" element={<LayoutClient />}>

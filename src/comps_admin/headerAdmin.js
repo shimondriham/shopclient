@@ -17,6 +17,7 @@ function HeaderAdmin(props){
         <Link to="/admin/products" >Products</Link>
         <Link to="/admin/categories" >Categories</Link>
         <Link to="/admin/users" >Users</Link>
+        <Link to="/admin/checkout" >Checkout</Link>
 
         {/* we cant do nav command to Link comp */}
         {localStorage["tok"] ? 
