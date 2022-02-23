@@ -36,7 +36,7 @@ function ClientHeader(props) {
         <div className="row justify-content-between align-items-center">
           <div className='logo col-md-auto'>
             <Link to="/">
-              <h2>Koko makolet</h2>
+            <h2>The gaming world</h2>
             </Link>
           </div>
           <nav className='col-md-auto'>
