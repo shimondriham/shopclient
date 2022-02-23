@@ -27,7 +27,7 @@ function LayoutClient(props) {
 
   const updateCart = (_newAr) => {
     setCartAr(_newAr);
-    // TODO: add to localstorage
+  //  add to localstorage
     saveCartLocal(_newAr);
   }
 

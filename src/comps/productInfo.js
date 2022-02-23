@@ -48,9 +48,14 @@ function ProductInfo(props){
           <button onClick={() => {
             nav(-1);
           }} className='btn btn-dark'>Back</button>
+          {product.qty > 0 ? 
           <button onClick={onAddToCartClick} className="btn btn-info ms-2">Add to cart 
           <BsCart3 className="ms-2 mb-1"/>+
-          </button>
+          </button> :
+           <button  className="btn btn-danger ms-2">SOLD OUT!!!
+          
+           </button>
+          }
         </div>
       </div>
       {product.cat_short_id ? 

@@ -16,7 +16,6 @@ import UsersList from './comps_admin/usersList';
 import ProductsListPage from "./comps/productsListPage";
 import ProductInfo from './comps/productInfo';
 
-import 'react-toastify/dist/ReactToastify.css';
 import SignUpClient from './comps/users_comps/signupClient';
 import LogInClient from './comps/users_comps/loginClient';
 import LogoutClient from './comps/users_comps/logoutClient';
@@ -25,6 +24,11 @@ import SearchProducts from './comps/searchProducts';
 import Page404 from './comps/general_comps/page404';
 import CheckoutListAdmin from './comps_admin/checkoutListAdmin';
 import CheckoutInfo from './comps_admin/checkoutInfo';
+import Checkout from './comps/orders_comps/checkout';
+
+import 'react-toastify/dist/ReactToastify.css';
+import OldOrders from './comps/orders_comps/oldOrders';
+import OldOrderInfoClient from './comps/orders_comps/oldOrderInfoClient';
 
 function AppRoute(props){
   return(
@@ -54,6 +58,9 @@ function AppRoute(props){
           <Route path="/login" element={<LogInClient />}  />
           <Route path="/logout" element={<LogoutClient />}  />
           <Route path="/products_favs" element={<FavsProducts />}  />
+          <Route path="/checkout" element={<Checkout />}  />
+          <Route path="/oldOrders" element={<OldOrders />}  />
+          <Route path="/oldOrders/:idOrder" element={<OldOrderInfoClient />}  />
          {/* * - for any url that not in another route go to 404 */}
           <Route path="/*" element={<Page404 />} />
         </Route> 
