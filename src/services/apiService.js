@@ -1,7 +1,8 @@
 import axios from "axios";
 
-export const API_URL = "http://localhost:3002";
 // export const API_URL = "http://localhost:3002";
+export const API_URL = "https://shimonshop.herokuapp.com/";
+
 
 
 export const doApiGet = async (_url) => {
