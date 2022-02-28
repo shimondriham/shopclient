@@ -26,7 +26,7 @@ function OldOrderInfoClient(props){
 
   return(
     <div className='container'>
-      <Link to="/oldOrders/">back to list</Link>
+      <Link className='btn btn-outline-secondary mt-2' to="/oldOrders/">back to list</Link>
       { orderInfo.name ? <article>
         <h2>Order info:</h2>
         <h3>Status of order: {orderInfo.status}</h3>

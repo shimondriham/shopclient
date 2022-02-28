@@ -27,8 +27,14 @@ function UsersList(props){
   }
 
   const delUser = async(_idDel) => {
-    //TODO: del user
+    if (window.confirm("Are you sure you want to delete?")) {
+      let url = API_URL+"/users/"+_idDel
+      let resp = await doApiMethod(url,"DELETE",{});
+      console.log(resp.data);
+      doApi()
+    }
   }
+
 
   // change role user for admin or back to regular user
   const changeRole = async(_userId,_role) => {

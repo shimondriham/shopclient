@@ -4,12 +4,15 @@ import { getCartFromLocal } from '../../services/localService';
 import AuthClientComp from '../users_comps/authClientComp';
 import { AppContext } from "../../context/shopContext"
 import { API_URL, doApiMethod } from '../../services/apiService';
+import { useNavigate } from 'react-router-dom';
 
 function Checkout(props) {
   const { cart_ar, setShowCart, updateCart } = useContext(AppContext);
   const [cartEmpty, setCartEmpty] = useState(false);
   const [showLoading, setShowLoading] = useState(true);
   const [total, setTotal] = useState(0);
+  const nav = useNavigate();
+
 
   useEffect(() => {
     setShowCart("none")
@@ -65,6 +68,7 @@ function Checkout(props) {
       let resp = await doApiMethod(url, "PATCH", paypalObject);
       if (resp.data.modifiedCount == 1) {
         alert("Your order completed");
+        nav("/oldorders");
         updateCart([]);
       }
     }
@@ -85,7 +89,7 @@ function Checkout(props) {
               <tr>
                 <th>#</th>
                 <th>name</th>
-                <th>amount</th>
+                {/* <th>amount</th> */}
                 <th>price</th>
                 <th>del</th>
               </tr>
@@ -96,10 +100,10 @@ function Checkout(props) {
                   <tr key={item._id} title={item.info}>
                     <td>{i + 1}</td>
                     <td>{item.name}</td>
-                    <td>1</td>
+                    {/* <td>1</td> */}
                     <td>{item.price}</td>
                     <td>
-                      <button onClick={() => { onXclick(item._id) }} className="badge bg-warning">X</button>
+                      <button onClick={() => { onXclick(item._id) }} className="badge bg-danger">X</button>
                     </td>
                   </tr>
                 )
@@ -125,16 +129,12 @@ function Checkout(props) {
                   // if payment success ,
                   if(data.orderID){
                     onCommit(data);
-
                   }
                 }}
                 onCancel={(err) => {
                   alert("The process end before the payment, try again")
                 }}
-              />
-
-         
-              {/* <button onClick={() => { onCommit() }} className='btn btn-info w-100'>Commit</button> */}
+              />        
             </div>
           }
         </div>

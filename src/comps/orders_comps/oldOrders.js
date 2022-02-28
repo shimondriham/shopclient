@@ -44,7 +44,7 @@ function OldOrders(props){
                <td>{item.total_price}</td>
                <td>{date}</td>
                <td>
-                 <Link to={"/oldOrders/"+item._id}>More info</Link>
+                 <Link  to={"/oldOrders/"+item._id} className='btn btn-outline-info'>More info</Link>
                </td>
              </tr>
             )

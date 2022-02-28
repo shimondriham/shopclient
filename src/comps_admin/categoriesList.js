@@ -71,7 +71,7 @@ function CategoriesList(props){
                 <td>{item.short_id}</td>
         
                 <td>
-                  <button onClick={() => {delCategory(item._id)}} className='badge bg-danger'>X</button>
+                  <button onClick={() => {delCategory(item.short_id)}} className='badge bg-danger'>X</button>
                   <button onClick={() => {
                     nav("/admin/editCategory/"+item.url_name)
                   }} className='badge bg-info'>Edit</button>
