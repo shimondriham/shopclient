@@ -26,7 +26,9 @@ function ClientHeader(props) {
 
   const onSearchClick = () => {
     let input_val = inputRef.current.value;
-    nav("/productsSearch?s="+input_val);
+    if(input_val){
+       nav("/productsSearch?s="+input_val);
+    }
   }
 
 
@@ -43,7 +45,7 @@ function ClientHeader(props) {
             <div className='d-md-flex align-items-center'>
               <div className='links_header me-md-3'>
                 {/* <Link to="/">Home</Link> */}
-                <Link to="/checkout">Checkout</Link>
+                <Link to="/checkout">Check Out</Link>
                      <Link to="/products_favs">Favorites</Link>
                 <Link to="/oldOrders">Old orders</Link>
            
