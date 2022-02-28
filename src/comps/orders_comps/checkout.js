@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { getCartFromLocal } from '../../services/localService';
+// import { getCartFromLocal } from '../../services/localService';
+import {PayPalButton} from "react-paypal-button-v2"
 import AuthClientComp from '../users_comps/authClientComp';
 import { AppContext } from "../../context/shopContext"
 import { API_URL, doApiMethod } from '../../services/apiService';
@@ -105,7 +106,21 @@ function Checkout(props) {
           {showLoading ? <h2>Loading...</h2> :
             <div>
               <h3>Choose paid method:</h3>
-              <button onClick={() => { onCommit() }} className='btn btn-info w-100'>Commit</button>
+              <PayPalButton
+                currency="ILS"
+                amount="200"
+                options={{
+                  clientId:"Afjsz33ikSod6l7uHOgp9V590s6g27vsVO0TrHgDzqEnij7OOx2lUuQkbfqi8EgOXa7YdhYGklrqzgQd"
+                }}
+                onSuccess={(details,data) => {
+                  console.log(data);
+                }}
+                onCancel={(err) => {
+                  alert("The process end before the payment, try again")
+                }}
+              />
+
+              {/* <button onClick={() => { onCommit() }} className='btn btn-info w-100'>Commit</button> */}
             </div>
           }
         </div>
