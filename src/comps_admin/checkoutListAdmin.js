@@ -41,7 +41,7 @@ function CheckoutListAdmin(props){
             <th>address</th>
             <th>total price</th>
             <th>amount of kind of products</th>
-            <th>del/info</th>
+            <th>info</th>
           </tr>
         </thead>
         <tbody>

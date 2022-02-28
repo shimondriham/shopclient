@@ -36,16 +36,17 @@ function ClientHeader(props) {
         <div className="row justify-content-between align-items-center">
           <div className='logo col-md-auto'>
             <Link to="/">
-              <h2>Koko makolet</h2>
+            <h2>The gaming world</h2>
             </Link>
           </div>
           <nav className='col-md-auto'>
             <div className='d-md-flex align-items-center'>
               <div className='links_header me-md-3'>
-                <Link to="/">Home</Link>
+                {/* <Link to="/">Home</Link> */}
                 <Link to="/checkout">Checkout</Link>
+                     <Link to="/products_favs">Favorites</Link>
                 <Link to="/oldOrders">Old orders</Link>
-                <Link to="/products_favs">Favorites</Link>
+           
               </div>
               <div className='search_header d-flex'>
                 <input onKeyDown={onKeyboardClick} ref={inputRef} placeholder='search...' type="text" className='form-control' />
@@ -56,7 +57,7 @@ function ClientHeader(props) {
 
               <div className='log_in_out'>
                 {login ?
-                  <Link to="/logout" className='text-danger'>Log out</Link>
+                  <Link to="/logout" >Log out</Link>
                   :
                   <React.Fragment>
                     <Link to="/login">Log in</Link>/
