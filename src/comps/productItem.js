@@ -15,7 +15,7 @@ function ProducItem(props) {
           }</div>
         <div className='p-2'>
       
-          <h4>{item.name}</h4>
+          <h4 title={item.name}>{item.name.substring(0, 20)}{item.name.length>20?<span>...</span>:""}</h4>
           <div>Price: {item.price} NIS</div>
           <div className='text-center my-2'>
             {favs_ar.includes(item.short_id) ? 
