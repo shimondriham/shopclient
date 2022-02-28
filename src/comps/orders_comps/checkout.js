@@ -54,10 +54,15 @@ function Checkout(props) {
     updateCart(temp_ar);
   }
 
-  const onCommit = async () => {
+  const onCommit = async (_data) => {
     if (cart_ar.length > 0) {
       let url = API_URL + "/orders/orderPaid/"
-      let resp = await doApiMethod(url, "PATCH", {});
+      let paypalObject = {
+        tokenId: _data.facilitatorAccessToken,
+        orderId: _data.orderID,
+        realPay:"sandbox" //if yes is real
+      }
+      let resp = await doApiMethod(url, "PATCH", paypalObject);
       if (resp.data.modifiedCount == 1) {
         alert("Your order completed");
         updateCart([]);
@@ -108,7 +113,7 @@ function Checkout(props) {
               <h3>Choose paid method:</h3>
               <PayPalButton
                 currency="ILS"
-                amount= {total}
+                amount={total}
                 options={{
                   clientId:"AVC7mEW5RDbALzT1476MY9WJ8b7FnIMlQZ1iINrAieAP_-moVVf5UCTqRFQCPHxadMwGsCr4nhF71Gjd"
                 }}
@@ -119,10 +124,10 @@ function Checkout(props) {
                   console.log("details",details);
                   // if payment success ,
                   if(data.orderID){
-                    onCommit();
+                    onCommit(data);
+
                   }
                 }}
-
                 onCancel={(err) => {
                   alert("The process end before the payment, try again")
                 }}
