@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-// import { getCartFromLocal } from '../../services/localService';
+import { getCartFromLocal } from '../../services/localService';
 import {PayPalButton} from "react-paypal-button-v2"
 import AuthClientComp from '../users_comps/authClientComp';
 import { AppContext } from "../../context/shopContext"
