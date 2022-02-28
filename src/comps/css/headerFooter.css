@@ -4,7 +4,6 @@
   position: relative;
   /* for z-index work we must add position:realtive prop */
   z-index: 999;
-  background: linear-gradient(to right, #cb60b3 0%,#ad1283 0%,#f94f69 100%); 
 
 }
 
@@ -13,13 +12,12 @@
 }
 
 .header-client .logo a{
-  color:white;
+  color:grey;
   text-decoration: none;
 }
 
-.header-client nav  a{  
+.header-client nav  a{
   color:rgb(75, 75, 75);
-  color:white;
   padding:0 12px;
   text-decoration: none;
 }
@@ -44,11 +42,3 @@
   align-items: center;
   min-height: 48px;
 }
-.log_in_out{
-color: white;
-}
-/* .log_in_out :hover{
-  background:  #f94fa4a6;
-  border-bottom: 50px;
-} */
-

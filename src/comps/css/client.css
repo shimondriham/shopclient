@@ -4,8 +4,11 @@
   background-size: cover;
   background-position:center center;
   position: relative;
+  /* part of children element that out of the border of parent element will hide */
   overflow: hidden;
+  
 }
+
 
 .product-item .product-img .sold-out{
   position: absolute;
@@ -15,4 +18,3 @@
   padding:8px 100px;
   transform: rotate(-45deg);
 }
-

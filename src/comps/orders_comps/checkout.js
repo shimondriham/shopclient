@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { getCartFromLocal } from '../../services/localService';
 import {PayPalButton} from "react-paypal-button-v2"
+import { getCartFromLocal } from '../../services/localService';
 import AuthClientComp from '../users_comps/authClientComp';
 import { AppContext } from "../../context/shopContext"
 import { API_URL, doApiMethod } from '../../services/apiService';
@@ -110,16 +110,25 @@ function Checkout(props) {
                 currency="ILS"
                 amount="200"
                 options={{
-                  clientId:"Afjsz33ikSod6l7uHOgp9V590s6g27vsVO0TrHgDzqEnij7OOx2lUuQkbfqi8EgOXa7YdhYGklrqzgQd"
+                  clientId:"AVC7mEW5RDbALzT1476MY9WJ8b7FnIMlQZ1iINrAieAP_-moVVf5UCTqRFQCPHxadMwGsCr4nhF71Gjd"
                 }}
                 onSuccess={(details,data) => {
-                  console.log(data);
+                  // data - have info of pay token to check in nodejs
+                  console.log("data",data);
+                  // details have info about the buyer
+                  console.log("details",details);
+                  // if payment success ,
+                  if(data.orderID){
+                    onCommit();
+                  }
                 }}
+
                 onCancel={(err) => {
                   alert("The process end before the payment, try again")
                 }}
               />
 
+         
               {/* <button onClick={() => { onCommit() }} className='btn btn-info w-100'>Commit</button> */}
             </div>
           }
