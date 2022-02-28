@@ -1,6 +1,5 @@
-import React from 'react';
+import React ,{ useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react/cjs/react.development';
 import { API_URL, doApiGet } from '../services/apiService';
 
 function PageLinks(props){
