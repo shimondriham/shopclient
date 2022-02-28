@@ -108,7 +108,7 @@ function Checkout(props) {
               <h3>Choose paid method:</h3>
               <PayPalButton
                 currency="ILS"
-                amount="200"
+                amount= {total}
                 options={{
                   clientId:"AVC7mEW5RDbALzT1476MY9WJ8b7FnIMlQZ1iINrAieAP_-moVVf5UCTqRFQCPHxadMwGsCr4nhF71Gjd"
                 }}
