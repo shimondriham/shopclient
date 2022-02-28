@@ -3,5 +3,16 @@
   background:silver;
   background-size: cover;
   background-position:center center;
-  
+  position: relative;
+  overflow: hidden;
 }
+
+.product-item .product-img .sold-out{
+  position: absolute;
+  top:10px;
+  left:-100px;
+  background: red;
+  padding:8px 100px;
+  transform: rotate(-45deg);
+}
+

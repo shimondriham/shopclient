@@ -13,7 +13,7 @@ function CheckoutItem(props){
       <td>{item.total_price}</td>
       <td>{item.products_ar.length}</td>
       <td>
-        <button className='badge bg-danger'>del</button>
+        {/* <button className='badge bg-danger'>del</button> */}
         <button onClick={() => {
           nav("/admin/checkoutInfo/"+item._id);
         }} to="/" className='badge bg-info'>info</button>

@@ -10,8 +10,11 @@ function ProducItem(props) {
   return (
     <div className='product-item col-md-3 p-2'>
       <div className="shadow">
-        <div style={{ backgroundImage: `url(${item.img_url || "/images/cover.jpg"})` }} className='product-img'></div>
+        <div style={{ backgroundImage: `url(${item.img_url || "/images/cover.jpg"})` }} className='product-img'>  {item.qty === 0 ? 
+          <div className='sold-out'>Sold out!</div> : ""
+          }</div>
         <div className='p-2'>
+      
           <h4>{item.name}</h4>
           <div>Price: {item.price} NIS</div>
           <div className='text-center my-2'>
