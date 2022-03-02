@@ -30,7 +30,7 @@ function ProducItem(props) {
               <BsStar className='mb-1' />
             </button>
             }
-            <Link className='btn btn-dark w-50' to={"/productInfo/"+item._id}>More info</Link>
+            <Link className='btn btn-dark w-50 mx-1' to={"/productInfo/"+item._id}>More info</Link>
           </div>
         </div>
       </div>
