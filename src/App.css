@@ -1,1 +1,14 @@
-/* נשתמש בו להמשך לדברים שלנו כללים */
+body{
+    background: linear-gradient(90deg, rgb(247, 197, 230) 0%, #ffffff 100%);
+    font-family: sans-serif;
+}
+ a{
+     text-decoration: none;
+ }
+.gradi{
+	text-transform: uppercase;
+	background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-family: sans-serif;
+}

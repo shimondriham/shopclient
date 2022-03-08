@@ -29,7 +29,7 @@ function ProductsHome(props){
   return(
     <div className='container py-4'>
       {localStorage[VISITED_PRODUCT] ? 
-        <h2 className='text-center text-info'>Products you intersted in</h2> :
+        <h2 className='text-center text-info gradi'>Products you intersted in</h2> :
       <h2 className='text-center'>
         New products in our store
       </h2>

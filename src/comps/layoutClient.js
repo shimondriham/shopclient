@@ -13,7 +13,7 @@ import { getCartFromLocal, saveCartLocal } from '../services/localService';
 function LayoutClient(props) {
   const [favs_ar, setFavsAr] = useState([]);
 
-  // cart global state
+
   const [cart_ar,setCartAr] = useState([]);
   const [showCart, setShowCart] = useState("none");
 
@@ -21,13 +21,11 @@ function LayoutClient(props) {
 
   useEffect(() => {
     doFavApi()
-    // get cart from local
     setCartAr(getCartFromLocal());
   }, [])
 
   const updateCart = (_newAr) => {
     setCartAr(_newAr);
-  //  add to localstorage
     saveCartLocal(_newAr);
   }
 

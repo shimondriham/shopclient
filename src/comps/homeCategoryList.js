@@ -22,7 +22,7 @@ function HomeCategoryList(props) {
   return (
     <div className='container-fluid shadow'>
       <div className='container py-4 categories_list'>
-        <h2 className='text-center'>Choose category of products you want to buy:</h2>
+        <h2 className='text-center gradi mt-3 mb-3'>categories:</h2>
         <div className="row">
           {ar.map(item => {
             return (

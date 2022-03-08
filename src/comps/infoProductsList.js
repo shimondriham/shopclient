@@ -36,9 +36,11 @@ function InfoProductsList(props){
   }
   
   return(
+    
     <div className='my-5'>
-      <h2 className='text-center'>
-        New products in our store
+      <hr/>
+      <h2 className='text-center gradi'>
+      More products you might like :
       </h2>
       <div className="row">
         {ar.map(item => {

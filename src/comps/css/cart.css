@@ -1,7 +1,7 @@
 .cart{
   position: fixed;
   width:100%;
-  max-width: 400px;
+  max-width: 300px;
   height: 50vh;
 
   background: white;
@@ -16,4 +16,27 @@
   top:10px;
   right:10px;
   position: absolute;
+}
+@media (max-width:768px){
+  .cart{
+    max-width: 200px;
+    background: rgba(255, 255, 255, 0.863);
+    font-size: 14px;
+   
+  } 
+  .cart .close-btn{
+    top:10px;
+    right:10px;
+    position: absolute;
+    /* border-radius: 45%; */
+    padding: 0px 3px;  
+    font-size: 14px;
+  }
+  .cart h4,.cart h5 {
+ font-size: 14px;
+  }
+  .ToCheckout{
+    font-size: 14px;
+    padding: 1px 6px; 
+  }
 }

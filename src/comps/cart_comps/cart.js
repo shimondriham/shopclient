@@ -23,7 +23,7 @@ function Cart(props){
       <button className='btn btn-outline-danger close-btn' onClick={() => {
         setShowCart("none");
       }}>close</button>
-      <h2 className='p-2'>Products in carts:</h2>
+      <h4 className='p-2'>Products in carts:</h4>
       {cart_ar.map(item => {
         return(
           <CartItem key={item._id} item={item} />
@@ -31,8 +31,8 @@ function Cart(props){
       })}
       {/* <CartItem /> */}
 
-      <h2 className='p-2'>Total: {total} Nis</h2>
-      <Link  to={"/Checkout/"} className='m-2 btn btn-outline-primary'>To Checkout</Link>
+      <h5 className='p-2'>Total: {total} Nis</h5>
+      <Link  to={"/Checkout/"} className='m-2 btn btn-outline-primary ToCheckout'>To Checkout</Link>
     </div> 
   )
 }

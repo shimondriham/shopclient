@@ -20,8 +20,7 @@ function ProductsListPage(props) {
 
   const doApi = async () => {
 
-    // קודם כל אוסף מידע על הקטגוריה לפי היו אר אל שלה
-    // כדי שיהיה לי את האיי די המקוצר להביא את כל המוצרים
+
     let urlCategory = API_URL + "/categories/single/" + params.cat_url;
     let resp1 = await doApiGet(urlCategory);
     // console.log(resp1.data);

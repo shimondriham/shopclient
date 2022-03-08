@@ -23,9 +23,10 @@ function FavsProducts(props) {
     <div className='container-fluid' style={{ minHeight: "85vh" }}>
       <div className="container">
         <AuthClientComp />
-        <h1 className='text-center'>List of products that you added to favorites</h1>
-        <h4 className='text-center'>Click on star to remove them from the list</h4>
-        {ar.length == 0 ? <h2 className='text-center'>Loading...</h2> : ""}
+        <h1 className='text-center gradi'>Your favorites</h1>
+        <h5 className='text-center gradi'>Click on star to remove them from the list</h5>
+        {/* {ar.length == 0 ? <h2 className='text-center'>Loading...</h2> : ""} */}
+        {ar.length == 0 ? <h2 className='text-center text-danger'>You have not yet selected any favorites</h2> : ""}
         <div className="row">
           {ar.map(item => {
             return (
