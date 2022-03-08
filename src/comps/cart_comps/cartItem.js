@@ -5,9 +5,8 @@ function CartItem(props){
   const {cart_ar, updateCart} = useContext(AppContext);
   let item = props.item;
 
-  // remove from cart
+   // Remove product from the cart
   const onRemoveItemClick = () => {
-    // filter the item of the product in the comp from the cart_ar
     let temp_ar = cart_ar.filter(prod => prod._id != item._id);
     updateCart(temp_ar);
 

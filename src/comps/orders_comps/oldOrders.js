@@ -10,13 +10,15 @@ function OldOrders(props){
     doApi();
   },[])
 
+
+   // Collecting orders to ar
   const doApi = async() => {
     let url = API_URL+"/orders/userOrder";
     let resp = await doApiGet(url);
-    // console.log(resp.data)
     let temp_ar = resp.data.filter(item => item.status != "pending")
     setAr(temp_ar);
   }
+
 
   return(
     <div className='container mt-3' style={{ minHeight: "85vh" }}>
@@ -36,7 +38,6 @@ function OldOrders(props){
           {ar.map((item,i) => {
             let date = item.date_created.replace("T"," ");
             date = date.substring(0,date.indexOf(":")+3);
-
             return(
              <tr key={item._id}>
                <td>{i+1}</td>
@@ -54,5 +55,4 @@ function OldOrders(props){
     </div> 
   )
 }
-
 export default OldOrders

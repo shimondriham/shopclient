@@ -16,23 +16,19 @@ function Checkout(props) {
 
   useEffect(() => {
     setShowCart("none")
-    // Check if there products in the cart
-    console.log(cart_ar)
     if (cart_ar.length > 0) {
       setCartEmpty(false)
       setShowLoading(true)
-      //post the products in the db order
       doApiAddToCheckout()
     }
     else {
       setCartEmpty(true)
       setShowLoading(false);
     }
-    // get the data of the products
   }, [cart_ar])
 
-  const doApiAddToCheckout = async () => {
-    // add to checkout
+// add to checkout
+  const doApiAddToCheckout = async () => {  
     let url = API_URL + '/orders';
     let total_price = 0
     let products_ar = cart_ar.map(item => {
@@ -51,19 +47,20 @@ function Checkout(props) {
     setShowLoading(false);
   }
 
+  // delete from the cart
   const onXclick = (_delProdId) => {
-    // delete from the cart in context the product and update it in local
     let temp_ar = cart_ar.filter(prod => prod._id != _delProdId);
     updateCart(temp_ar);
   }
 
+  // Update order status if payment has been made
   const onCommit = async (_data) => {
     if (cart_ar.length > 0) {
       let url = API_URL + "/orders/orderPaid/"
       let paypalObject = {
         tokenId: _data.facilitatorAccessToken,
         orderId: _data.orderID,
-        realPay:"sandbox" //if yes is real
+        realPay:"sandbox"
       }
       let resp = await doApiMethod(url, "PATCH", paypalObject);
       if (resp.data.modifiedCount == 1) {
@@ -122,11 +119,6 @@ function Checkout(props) {
                   clientId:"AVC7mEW5RDbALzT1476MY9WJ8b7FnIMlQZ1iINrAieAP_-moVVf5UCTqRFQCPHxadMwGsCr4nhF71Gjd"
                 }}
                 onSuccess={(details,data) => {
-                  // data - have info of pay token to check in nodejs
-                  console.log("data",data);
-                  // details have info about the buyer
-                  console.log("details",details);
-                  // if payment success ,
                   if(data.orderID){
                     onCommit(data);
                   }

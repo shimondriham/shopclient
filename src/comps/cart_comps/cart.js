@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 function Cart(props){
   const [total,setTotal] = useState(0);
-
   const {showCart,setShowCart,cart_ar} = useContext(AppContext);
 
 //  calc the total
@@ -29,8 +28,6 @@ function Cart(props){
           <CartItem key={item._id} item={item} />
         )
       })}
-      {/* <CartItem /> */}
-
       <h5 className='p-2'>Total: {total} Nis</h5>
       <Link  to={"/Checkout/"} className='m-2 btn btn-outline-primary ToCheckout'>To Checkout</Link>
     </div> 

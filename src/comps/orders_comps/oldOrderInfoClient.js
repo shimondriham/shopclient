@@ -12,17 +12,18 @@ function OldOrderInfoClient(props){
     doApi();
   }, [])
 
+
+  // Collecting orders to ar
   const doApi = async () => {
     let url = API_URL + "/orders/productsInfo/" + params.idOrder;
     let resp = await doApiGet(url);
-    // console.log(resp.data);
-    // defiendDate
     let date = resp.data.order.date_created.replace("T"," ");
     date = date.substring(0,date.indexOf(":")+3);
     setOrderDate(date);
     setOrderInfo(resp.data.order);
     setAr(resp.data.products);
   }
+
 
   return(
     <div className='container'>
@@ -32,7 +33,7 @@ function OldOrderInfoClient(props){
         <h3>Status of order: {orderInfo.status}</h3>
         <h3>Date: {orderDate}</h3>
       </article> : <h2>Loading...</h2>}
- 
+
       <h4>Total price of order:{orderInfo.total_price} nis</h4>
       <table className='table table-striped'>
         <thead>

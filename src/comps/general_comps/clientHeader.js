@@ -17,20 +17,22 @@ function ClientHeader(props) {
     setLogin(checkTokenLocal())
   },[location])
 
-  // work on every key click on the keyboard
+  // check if we click Enter
   const onKeyboardClick = (e) => {
-    // check if we click Enter 
     if(e.key == "Enter"){
       onSearchClick();
     }
   }
 
+  // Search button
   const onSearchClick = () => {
     let input_val = inputRef.current.value;
     if(input_val){
        nav("/productsSearch?s="+input_val);
     }
   }
+
+  // Hide and seek button for hamburger
   const onBurgerClick = () => {
     if(navborger=="none")setnavborger("block")
     else setnavborger("none")
@@ -44,9 +46,7 @@ function ClientHeader(props) {
         <div className="row justify-content-between align-items-center">
           <div className='logo  col-auto'>
             <Link to="/">
-            {/* <h2>The gaming world</h2> */}
             <h2><i   className="fa fa-gamepad " aria-hidden="true"></i></h2>
-            {/* <img src=".../public/logo_gaming.png"/> */}
             </Link>
           </div>
           <div className='d-sm-inline-block d-md-none col-auto '><h2><button onClick={onBurgerClick}><i class="fa fa-bars" aria-hidden="true"></i></button></h2></div>
@@ -55,7 +55,6 @@ function ClientHeader(props) {
              <div className='search_header d-flex mt-1'>
                 <input style={{width:"100px",height:"30px"}} onKeyDown={onKeyboardClick} ref={inputRef} placeholder='search...' type="text" className='form-control' />
                 <button onClick={onSearchClick} className='btn'><BsSearch className='icon1' /></button>
-               {/* cart button */}
               </div>
               <div className='links_header me-md-3 d-flex flex-column'>
                 {/* <Link to="/"><i class="fa fa-home" aria-hidden="true"></i> Home</Link> */}

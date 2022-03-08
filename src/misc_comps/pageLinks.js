@@ -7,10 +7,11 @@ function PageLinks(props){
   const [pages,setPages] = useState(0)
 
   useEffect(() => {
-
     doApi()
   },[])
 
+  
+  // Check how many pages there are
   const doApi = async() => {
     let url = props.apiUrlAmount;
     let resp = await doApiGet(url);
@@ -21,7 +22,7 @@ function PageLinks(props){
   return(
     <div className='my-3'>
       <span>page: </span>
-      {/* [...Array(pages)] - createa array from number var that we can do map/loop on him */}
+      {/* createa array from number var that we can do map/loop on him  */}
       {[...Array(pages)].map((item,i) => {
         return(
           <button key={i} className={props.clsCss} onClick={() => {
