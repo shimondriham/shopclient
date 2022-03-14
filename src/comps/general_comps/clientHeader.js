@@ -53,7 +53,7 @@ function ClientHeader(props) {
           
     
 
-          <div className='d-sm-inline-block d-md-none col-auto '><h2><button onClick={onBurgerClick} className='btn '><Hamburger  /></button></h2></div>
+          <div className='d-sm-inline-block d-md-none col-auto '><h2><button style={{color:"white"}} onClick={onBurgerClick} className='btn '><Hamburger  /></button></h2></div>
          {navborger=="block"?
          <div style={{position:"absolute" , top:"72px", background:"rgba(255, 255, 255, 0.856)" , right:"5px", width:"160px" , textAlign:"start" , border: "pink solid 1px"}} className='d-flex d-md-none flex-column align-items-center '>
 
