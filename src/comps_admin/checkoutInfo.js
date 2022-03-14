@@ -35,7 +35,7 @@ function CheckoutInfo(props) {
 
   return (
     <div className='container'>
-      <Link to="/admin/checkout">back to list</Link>
+      <Link style={{colore:"red"}}  to="/admin/checkout"><i class="fa fa-backward" aria-hidden="true"></i>  back to list</Link>
       { orderInfo.name ? <article>
         <h2>Order info:</h2>
         <h3>Name: {orderInfo.name} , Address: {orderInfo.address} , phone: {orderInfo.phone}</h3>

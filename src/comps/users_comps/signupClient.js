@@ -51,23 +51,23 @@ return (
   <div className='container col-md-6 mx-auto my-5'>
     <h1>Sign up to the store</h1>
     <form onSubmit={handleSubmit(onSubForm)} className='col-12 p-3 border'>
-      <label>* Name:</label>
+      <label><i class="fa fa-user" aria-hidden="true"></i> Name:</label>
       <input {...nameRef} type="text" className='form-control' />
       {errors.name ? <small className='text-danger d-block'>* Enter valid name, min 2 chars</small> : ""}
-      <label>* Email:</label>
+      <label><i class="fa fa-envelope" aria-hidden="true"></i>  Email:</label>
       <input {...emailRef} type="text" className='form-control' />
       {errors.email ? <small className='text-danger d-block'>* Email invalid</small> : ""}
-      <label>* Password:</label>
+      <label><i class="fa fa-lock" aria-hidden="true"></i> Password:</label>
       <input {...passwordRef} type="text" className='form-control' />
       {errors.password ? <small className='text-danger d-block'>* Enter valid password, min 3 chars</small> : ""}
-      <label>Address:</label>
+      <label><i class="fa fa-address-card-o" aria-hidden="true"></i> Address:</label>
       <input {...addressRef} type="text" className='form-control' />
       {errors.address ? <small className='text-danger d-block'>* Enter valid address, min 2 chars</small> : ""}
-      <label>Phone:</label>
+      <label><i class="fa fa-phone-square" aria-hidden="true"></i> Phone:</label>
       <input {...phoneRef} type="text" className='form-control' />
       {errors.phone ? <small className='text-danger d-block'>* Enter valid phone number, min 9 numbers</small> : ""}
 
-      <button className='btn btn-info mt-4'>Sign up</button>
+      <button className='btn btn-info mt-4'>Sign up <i class="fa fa-sign-in" aria-hidden="true"></i></button>
     </form>
   </div>
 )

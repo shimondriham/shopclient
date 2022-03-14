@@ -49,15 +49,15 @@ function LogInClient(props){
     <h1>Login to the store</h1>
     <form onSubmit={handleSubmit(onSubForm)} className='col-12 p-3 border'>
      
-      <label>* Email:</label>
+      <label><i class="fa fa-envelope" aria-hidden="true"></i> Email:</label>
       <input {...emailRef} type="text" className='form-control' />
       {errors.email ? <small className='text-danger d-block'>* Email invalid</small> : ""}
-      <label>* Password:</label>
+      <label><i class="fa fa-lock" aria-hidden="true"></i> Password:</label>
       <input {...passwordRef} type="text" className='form-control' />
       {errors.password ? <small className='text-danger d-block'>* Enter valid password, min 3 chars</small> : ""}
       
 
-      <button className='btn btn-success mt-5'>Log in</button>
+      <button className='btn btn-success mt-5'>Log in <i class="fa fa-sign-in" aria-hidden="true"></i></button>
     </form>
   </div> 
   )
