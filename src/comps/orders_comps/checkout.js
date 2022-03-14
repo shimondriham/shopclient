@@ -80,7 +80,7 @@ function Checkout(props) {
       <div className="row">
         <div className="col-md-8">
           <h3>Products in cart:</h3>
-          <h4>Total price: {total} <i class="fa fa-ils" aria-hidden="true"></i></h4>
+          <h4>Total price: {total} <i className="fa fa-ils" aria-hidden="true"></i></h4>
           <table className='table table-striped'>
             <thead>
               <tr>

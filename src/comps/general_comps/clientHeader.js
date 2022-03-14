@@ -68,7 +68,7 @@ function ClientHeader(props) {
               <Link to="/products_favs"> <li><i className="fa fa-star-o" aria-hidden="true"></i> Favorites</li></Link>
              <Link to="/oldOrders"> <li><i className="fa fa-sort" aria-hidden="true"></i> Old orders</li>   </Link>
 
-              <li style={{color:"blue" }}> <button style={{color:"blue", textAlign:"start" }}  onClick={() => {showCart === "none" ? setShowCart("block") : setShowCart("none")}} className='btn p-0'><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</button></li>
+              <li style={{color:"blue" }}> <button style={{color:"blue", textAlign:"start" }}  onClick={() => {showCart === "none" ? setShowCart("block") : setShowCart("none")}} className='btn p-0'><i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart</button></li>
 
               <div className='log_in_out'>
                 {login ?

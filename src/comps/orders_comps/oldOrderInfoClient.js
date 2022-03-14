@@ -34,7 +34,7 @@ function OldOrderInfoClient(props){
         <h3>Date: {orderDate}</h3>
       </article> : <h2>Loading...</h2>}
 
-      <h4>Total price of order:{orderInfo.total_price} <i class="fa fa-ils" aria-hidden="true"></i></h4>
+      <h4>Total price of order:{orderInfo.total_price} <i className="fa fa-ils" aria-hidden="true"></i></h4>
       <table className='table table-striped'>
         <thead>
           <tr>

@@ -28,8 +28,8 @@ function Cart(props){
           <CartItem key={item._id} item={item} />
         )
       })}
-      <h5  className='p-2'><span style={{fontFamily:"fantasy"}}> Total :</span> {total} <i class="fa fa-ils" aria-hidden="true"></i></h5>
-      <Link  to={"/Checkout/"} className='m-2 btn btn-outline-primary ToCheckout'><i class="fa fa-credit-card-alt mx-1" aria-hidden="true"></i>  To Checkout</Link>
+      <h5  className='p-2'><span style={{fontFamily:"fantasy"}}> Total :</span> {total} <i className="fa fa-ils" aria-hidden="true"></i></h5>
+      <Link  to={"/Checkout/"} className='m-2 btn btn-outline-primary ToCheckout'><i className="fa fa-credit-card-alt mx-1" aria-hidden="true"></i>  To Checkout</Link>
     </div> 
   )
 }

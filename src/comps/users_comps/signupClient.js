@@ -46,23 +46,23 @@ return (
   <div className='container col-md-6 mx-auto my-5'>
     <h1>Sign up to the store</h1>
     <form onSubmit={handleSubmit(onSubForm)} className='col-12 p-3 border'>
-      <label><i class="fa fa-user" aria-hidden="true"></i> Name:</label>
+      <label><i className="fa fa-user" aria-hidden="true"></i> Name:</label>
       <input {...nameRef} type="text" className='form-control' />
       {errors.name ? <small className='text-danger d-block'>* Enter valid name, min 2 chars</small> : ""}
-      <label><i class="fa fa-envelope" aria-hidden="true"></i>  Email:</label>
+      <label><i className="fa fa-envelope" aria-hidden="true"></i>  Email:</label>
       <input {...emailRef} type="text" className='form-control' />
       {errors.email ? <small className='text-danger d-block'>* Email invalid</small> : ""}
-      <label><i class="fa fa-lock" aria-hidden="true"></i> Password:</label>
+      <label><i className="fa fa-lock" aria-hidden="true"></i> Password:</label>
       <input {...passwordRef} type="password" className='form-control' />
       {errors.password ? <small className='text-danger d-block'>* Enter valid password, min 3 chars</small> : ""}
-      <label><i class="fa fa-address-card-o" aria-hidden="true" ></i> Address:</label>
+      <label><i className="fa fa-address-card-o" aria-hidden="true" ></i> Address:</label>
       <input {...addressRef} type="text" className='form-control' placeholder='not required'/>
       {errors.address ? <small className='text-danger d-block'>* Enter valid address, min 2 chars</small> : ""}
-      <label><i class="fa fa-phone-square" aria-hidden="true"></i> Phone:</label>
+      <label><i className="fa fa-phone-square" aria-hidden="true"></i> Phone:</label>
       <input {...phoneRef} type="text" className='form-control' placeholder='not required'/>
       {errors.phone ? <small className='text-danger d-block'>* Enter valid phone number, min 9 numbers</small> : ""}
 
-      <button style={{fontFamily:"cursive"}} className='btn btn-info mt-4 mx-2 px-3'>Sign up <i class="fa fa-sign-in mx-1" aria-hidden="true"></i></button>
+      <button style={{fontFamily:"cursive"}} className='btn btn-info mt-4 mx-2 px-3'>Sign up <i className="fa fa-sign-in mx-1" aria-hidden="true"></i></button>
     </form>
   </div>
 )
