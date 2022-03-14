@@ -33,7 +33,7 @@ function CheckoutInfo(props) {
 
   return (
     <div className='container'>
-      <Link style={{colore:"red"}}  to="/admin/checkout"><i class="fa fa-backward" aria-hidden="true"></i>  back to list</Link>
+      <Link style={{colore:"red"}}  to="/admin/checkout"><i className="fa fa-backward" aria-hidden="true"></i>  back to list</Link>
       { orderInfo.name ? <article>
         <h2>Order info:</h2>
         <h3>Name: {orderInfo.name} , Address: {orderInfo.address} , phone: {orderInfo.phone}</h3>
@@ -50,7 +50,7 @@ function CheckoutInfo(props) {
         </div>
       </article> : <h2>Loading...</h2>}
   
-      <h4>Total price of order:{orderInfo.total_price} <i class="fa fa-ils" aria-hidden="true"></i></h4>
+      <h4>Total price of order:{orderInfo.total_price} <i className="fa fa-ils" aria-hidden="true"></i></h4>
       <table className='table table-striped'>
         <thead>
           <tr>

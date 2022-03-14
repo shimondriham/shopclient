@@ -47,15 +47,15 @@ function LogInClient(props){
     <h1>Login to the store</h1>
     <form onSubmit={handleSubmit(onSubForm)} className='col-12 p-3 border'>
      
-      <label><i class="fa fa-envelope" aria-hidden="true"></i> Email:</label>
+      <label><i className="fa fa-envelope" aria-hidden="true"></i> Email:</label>
       <input {...emailRef} type="text" className='form-control' />
       {errors.email ? <small className='text-danger d-block'>* Email invalid</small> : ""}
-      <label><i class="fa fa-lock" aria-hidden="true"></i> Password:</label>
+      <label><i className="fa fa-lock" aria-hidden="true"></i> Password:</label>
       <input {...passwordRef} type="text" className='form-control' />
       {errors.password ? <small className='text-danger d-block'>* Enter valid password, min 3 chars</small> : ""}
       
 
-      <button style={{fontFamily:"cursive"}} className='btn btn-success mt-5 px-4 mx-2'>Log in <i class="fa fa-sign-in mx-1" aria-hidden="true"></i></button>
+      <button style={{fontFamily:"cursive"}} className='btn btn-success mt-5 px-4 mx-2'>Log in <i className="fa fa-sign-in mx-1" aria-hidden="true"></i></button>
     </form>
   </div> 
   )
