@@ -58,7 +58,7 @@ return (
       <input {...emailRef} type="text" className='form-control' />
       {errors.email ? <small className='text-danger d-block'>* Email invalid</small> : ""}
       <label><i class="fa fa-lock" aria-hidden="true"></i> Password:</label>
-      <input {...passwordRef} type="text" className='form-control' />
+      <input {...passwordRef} type="password" className='form-control' />
       {errors.password ? <small className='text-danger d-block'>* Enter valid password, min 3 chars</small> : ""}
       <label><i class="fa fa-address-card-o" aria-hidden="true" ></i> Address:</label>
       <input {...addressRef} type="text" className='form-control' placeholder='not required'/>

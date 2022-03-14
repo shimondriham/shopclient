@@ -21,14 +21,14 @@ function Cart(props){
     <div style={{display:showCart}} className='cart'>
       <button className='btn btn-outline-danger close-btn' onClick={() => {
         setShowCart("none");
-      }}>X</button>
+      }}>close</button>
       <h4 className='p-2'>Products in carts:</h4>
       {cart_ar.map(item => {
         return(
           <CartItem key={item._id} item={item} />
         )
       })}
-      <h5 className='p-2'>Total: {total} <i class="fa fa-ils" aria-hidden="true"></i></h5>
+      <h5  className='p-2'><span style={{fontFamily:"fantasy"}}> Total :</span> {total} <i class="fa fa-ils" aria-hidden="true"></i></h5>
       <Link  to={"/Checkout/"} className='m-2 btn btn-outline-primary ToCheckout'><i class="fa fa-credit-card-alt mx-1" aria-hidden="true"></i>  To Checkout</Link>
     </div> 
   )
