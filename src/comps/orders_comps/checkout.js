@@ -49,7 +49,7 @@ function Checkout(props) {
 
   // delete from the cart
   const onXclick = (_delProdId) => {
-    let temp_ar = cart_ar.filter(prod => prod._id != _delProdId);
+    let temp_ar = cart_ar.filter(prod => prod._id !== _delProdId);
     updateCart(temp_ar);
   }
 
@@ -63,7 +63,7 @@ function Checkout(props) {
         realPay:"sandbox"
       }
       let resp = await doApiMethod(url, "PATCH", paypalObject);
-      if (resp.data.modifiedCount == 1) {
+      if (resp.data.modifiedCount === 1) {
         alert("Your order completed");
         nav("/oldorders");
         updateCart([]);

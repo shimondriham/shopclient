@@ -25,7 +25,7 @@ function CheckoutInfo(props) {
     let status = selectRef.current.value;
     let url = API_URL + "/orders/" + orderInfo._id + "?status=" + status;
     let resp = await doApiMethod(url, "PATCH", {});
-    if (resp.data.modifiedCount == 1) {
+    if (resp.data.modifiedCount === 1) {
       doApi();
     }
   }

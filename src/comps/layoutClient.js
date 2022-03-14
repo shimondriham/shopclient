@@ -32,7 +32,7 @@ function LayoutClient(props) {
   const addToCart = (_newItem) => {
     let inCart = false;
     cart_ar.map(item => {
-      if(item._id == _newItem._id){
+      if(item._id === _newItem._id){
         inCart = true;
       }
     })
@@ -49,7 +49,6 @@ function LayoutClient(props) {
       let url = API_URL + "/favs/"
       try {
         let resp = await doApiGet(url);
-        console.log(resp.data);
         if (resp.data.favs_ar) {
           setFavsAr(resp.data.favs_ar);
         }

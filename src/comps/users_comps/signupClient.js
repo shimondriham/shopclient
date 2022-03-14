@@ -21,7 +21,7 @@ function SignUpClient(props) {
       }
     }
     catch(err){
-      if(err.response.data.code == 11000){
+      if(err.response.data.code === 11000){
           toast.error("Email already in system , try log in")
       }
       else{

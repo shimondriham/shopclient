@@ -16,7 +16,7 @@ function InfoProductsList(props){
     let resp = await doApiGet(url);
     let temp_ar = resp.data;
     temp_ar = temp_ar.filter(item => {
-      return item._id != params.id;
+      return item._id !== params.id;
     })
     if(temp_ar.length > 4){
       temp_ar.pop();

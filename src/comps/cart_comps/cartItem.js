@@ -7,7 +7,7 @@ function CartItem(props){
 
    // Remove product from the cart
   const onRemoveItemClick = () => {
-    let temp_ar = cart_ar.filter(prod => prod._id != item._id);
+    let temp_ar = cart_ar.filter(prod => prod._id !== item._id);
     updateCart(temp_ar);
 
   }

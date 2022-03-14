@@ -30,7 +30,7 @@ function SearchProducts(props){
       <div className="container">
         <h1 className='text-center my-4'>Search for "{whatSearch}":</h1>
         {showLoading ? <h2 className='text-center'>Loading...</h2> : ""}
-        {ar.length == 0 && !showLoading ? <h2 className='text-center'>Search not match, try another query</h2> : ""}
+        {ar.length === 0 && !showLoading ? <h2 className='text-center'>Search not match, try another query</h2> : ""}
         <div className="row">
           {ar.map(item => {
             return (

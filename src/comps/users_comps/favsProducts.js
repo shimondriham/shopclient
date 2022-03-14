@@ -28,7 +28,7 @@ function FavsProducts(props) {
         <h1 className='text-center gradi'>Your favorites</h1>
         <h5 className='text-center gradi'>Click on star to remove them from the list</h5>
         {loading? <h2 className='text-center'>Loading...</h2> : ""}
-        {ar.length == 0 && !loading  ? <div className='mt-5' style={{height:"300px", maxWidth:"600px",display:"flex",justifyContent:"center",alignItems:"center",textAlign:"center",margin:"0 auto",background:"linear-gradient(rgba(73, 73, 73, 0.18),rgba(0, 0, 0, 0.18))"}}>you didn't have favorites product's yet...</div> : ""}
+        {ar.length === 0 && !loading  ? <div className='mt-5' style={{height:"300px", maxWidth:"600px",display:"flex",justifyContent:"center",alignItems:"center",textAlign:"center",margin:"0 auto",background:"linear-gradient(rgba(73, 73, 73, 0.18),rgba(0, 0, 0, 0.18))"}}>you didn't have favorites product's yet...</div> : ""}
         
         <div className="row">
           {ar.map(item => {

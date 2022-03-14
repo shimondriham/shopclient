@@ -22,7 +22,7 @@ function AuthAdminComp(props){
     let url = API_URL + "/users/myInfo";
     try{
       let resp = await doApiGet(url)
-      if(resp.data.role != "admin"){
+      if(resp.data.role !=="admin"){
         toast.error("You must be admin to be here! or you need to login again")
         nav("/admin/logout")
       }

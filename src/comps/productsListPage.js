@@ -40,7 +40,7 @@ function ProductsListPage(props) {
     <div className='container-fluid' style={{ minHeight: "85vh" }}>
       <div className="container">
         <h1 className='text-center my-4'>Categories of {params.cat_url}</h1>
-        {ar.length == 0 ? <h2 className='text-center'>Loading...</h2> : ""}
+        {ar.length === 0 ? <h2 className='text-center'>Loading...</h2> : ""}
         <div className="row">
           {ar.map(item => {
             return (
