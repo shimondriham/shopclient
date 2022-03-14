@@ -9,8 +9,6 @@ function SignUpClient(props) {
   let { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubForm = (data) => {
-    // data = the inputs in the form with ref in 1 object
-    console.log(data);
     doApi(data)
   }
   const doApi = async (_dataBody) => {
@@ -29,9 +27,6 @@ function SignUpClient(props) {
       else{
         alert("There problem , try come back later")
       }
-      // if(err.responose.code == 11000){
-      // }
-      // console.log(err)
     }
   }
 

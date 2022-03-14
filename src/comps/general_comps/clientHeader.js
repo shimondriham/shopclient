@@ -37,7 +37,6 @@ function ClientHeader(props) {
   const onBurgerClick = () => {
     if(navborger=="none")setnavborger("block")
     else setnavborger("none")
-  console.log("aaa")
   }
 
 
@@ -64,20 +63,20 @@ function ClientHeader(props) {
 
               <div className=' d-flex flex-column'>
 
-              <Link to="/"><li><i class="fa fa-home" aria-hidden="true"></i> Home</li></Link>
-             <Link to="/checkout"> <li><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Check Out</li> </Link>
-              <Link to="/products_favs"> <li><i class="fa fa-star-o" aria-hidden="true"></i> Favorites</li></Link>
-             <Link to="/oldOrders"> <li><i class="fa fa-sort" aria-hidden="true"></i> Old orders</li>   </Link>
+              <Link to="/"><li><i className="fa fa-home" aria-hidden="true"></i> Home</li></Link>
+             <Link to="/checkout"> <li><i className="fa fa-credit-card-alt" aria-hidden="true"></i> Check Out</li> </Link>
+              <Link to="/products_favs"> <li><i className="fa fa-star-o" aria-hidden="true"></i> Favorites</li></Link>
+             <Link to="/oldOrders"> <li><i className="fa fa-sort" aria-hidden="true"></i> Old orders</li>   </Link>
 
               <li style={{color:"blue" }}> <button style={{color:"blue", textAlign:"start" }}  onClick={() => {showCart === "none" ? setShowCart("block") : setShowCart("none")}} className='btn p-0'><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</button></li>
 
               <div className='log_in_out'>
                 {login ?
-                 <Link to="/logout" > <li><i class="fa fa-sign-out" aria-hidden="true"></i>Sign out</li></Link>
+                 <Link to="/logout" > <li><i className="fa fa-sign-out" aria-hidden="true"></i>Sign out</li></Link>
                   :
                   <React.Fragment >
-                   <Link  to="/login"> <li><i  class="fa fa-sign-in" aria-hidden="true"></i> Log in</li></Link>
-                    <Link  to="/signup"><li><i   class="fa fa-user-plus" aria-hidden="true"></i>  up</li></Link>
+                   <Link  to="/login"> <li><i  className="fa fa-sign-in" aria-hidden="true"></i> Log in</li></Link>
+                    <Link  to="/signup"><li><i   className="fa fa-user-plus" aria-hidden="true"></i>  up</li></Link>
                   </React.Fragment>
                 }
               </div>
@@ -92,10 +91,10 @@ function ClientHeader(props) {
           <nav className='d-none d-md-block col-md-auto '>
             <div className='d-md-flex align-items-center'>
               <div className='links_header me-md-3'>
-                <Link to="/"><i class="fa fa-home" aria-hidden="true"></i> Home</Link>
-                <Link to="/checkout"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Check Out</Link>
-                <Link to="/products_favs"><i class="fa fa-star-o" aria-hidden="true"></i> Favorites</Link>
-                <Link to="/oldOrders"><i class="fa fa-sort" aria-hidden="true"></i> Old orders</Link>
+                <Link to="/"><i className="fa fa-home" aria-hidden="true"></i> Home</Link>
+                <Link to="/checkout"><i className="fa fa-credit-card-alt" aria-hidden="true"></i> Check Out</Link>
+                <Link to="/products_favs"><i className="fa fa-star-o" aria-hidden="true"></i> Favorites</Link>
+                <Link to="/oldOrders"><i className="fa fa-sort" aria-hidden="true"></i> Old orders</Link>
            
               </div>
               <div className='search_header d-flex'>
@@ -107,11 +106,11 @@ function ClientHeader(props) {
 
               <div className='log_in_out'>
                 {login ?
-                  <Link to="/logout" ><i class="fa fa-sign-out" aria-hidden="true"></i> Log out</Link>
+                  <Link to="/logout" ><i className="fa fa-sign-out" aria-hidden="true"></i> Log out</Link>
                   :
                   <React.Fragment>
-                    <Link to="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</Link>/
-                    <Link to="/signup"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign up</Link>
+                    <Link to="/login"><i className="fa fa-sign-in" aria-hidden="true"></i> Log in</Link>/
+                    <Link to="/signup"><i className="fa fa-user-plus" aria-hidden="true"></i> Sign up</Link>
                   </React.Fragment>
                 }
               </div>

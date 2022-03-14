@@ -31,12 +31,10 @@ function AddProduct(props) {
   const doApi = async () => {
     let url = API_URL + "/categories";
     let resp = await doApiGet(url);
-    console.log(resp.data);
     setCatAr(resp.data);
   }
 
   const onSubForm = (formData) => {
-    // console.log(formData);
     setBtnSend(true);
     doFormApi(formData);
   }
@@ -45,10 +43,8 @@ function AddProduct(props) {
     let url = API_URL + "/products";
     try {
       let resp = await doApiMethod(url, "POST", formData);
-      // console.log(resp.data);
       if (resp.data._id) {
         toast.success("Product added");
-        // back to the list of products in the admin panel
         nav("/admin/products")
       }
     }
@@ -88,7 +84,6 @@ function AddProduct(props) {
               <option key={item._id} value={item.short_id}>{item.name}</option>
             )
           })}
-          {/* loop from api of category */}
         </select>
         {errors.cat_short_id ? <small className='text-danger d-block'>You must choose category from the list </small> : ""}
 
@@ -103,7 +98,6 @@ function AddProduct(props) {
           <option value="used">Used</option>
           <option value="broken">Broken</option>
         </select>
-        {/* disable-> if true user cant click */}
         <button disabled={btnSend}>Add new product</button>
       </form>
     </div>

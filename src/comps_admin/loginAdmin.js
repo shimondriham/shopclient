@@ -10,7 +10,6 @@ function LoginAdmin(props){
 
   const onSubForm = (data) => {
     // data = the inputs in the form with ref in 1 object
-    console.log(data);
     doApi(data)
   }
 
@@ -18,7 +17,6 @@ function LoginAdmin(props){
     let url = API_URL + "/users/login"
     try{
     let resp = await doApiMethod(url, "POST" ,_dataBody);
-    console.log(resp.data);
       if(resp.data.token){
         localStorage.setItem("tok",resp.data.token);
         // send user to product list

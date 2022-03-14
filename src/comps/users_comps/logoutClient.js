@@ -9,7 +9,6 @@ function LogoutClient(props){
   let nav = useNavigate();
 
   useEffect(() => {
-    // Logout the user from system and send him to home page
     deleteToken();
     toast.info("You logged out from system , see you soon!")
     nav("/");

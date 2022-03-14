@@ -13,17 +13,13 @@ function ProductsListPage(props) {
   let params = useParams();
 
   useEffect(() => {
-    // for show loading when we clikc pages
     setAr([]);
     doApi();
   }, [location]);
 
   const doApi = async () => {
-
-
     let urlCategory = API_URL + "/categories/single/" + params.cat_url;
     let resp1 = await doApiGet(urlCategory);
-    // console.log(resp1.data);
     let short_id = resp1.data?.short_id;
     setShortId(short_id)
 
@@ -32,7 +28,6 @@ function ProductsListPage(props) {
     let pageQuery = urlParams.get("page") || 1;
     let urlProds = API_URL + "/products/?perPage=8&cat=" + short_id + "&page=" + pageQuery;
     let resp2 = await doApiGet(urlProds)
-    // console.log(resp2.data);
 
     setAr(resp2.data)
 
@@ -41,7 +36,6 @@ function ProductsListPage(props) {
     let resp3 = await doApiGet(urlAmounts);
     setAmount(resp3.data.amount)
   }
-  // TODO: ADD PAGENATION
   return (
     <div className='container-fluid' style={{ minHeight: "85vh" }}>
       <div className="container">

@@ -1,11 +1,9 @@
 import React, { useEffect , useState } from 'react';
-// import { Link, useNavigate } from 'react-router-dom';
 import AuthAdminComp from '../misc_comps/authAdminComp';
 import { API_URL, doApiGet, doApiMethod } from '../services/apiService';
 
 function UsersList(props){
   let [ar,setAr] = useState([]);
-  // let nav = useNavigate()
 
   useEffect(() => {
     doApi()
@@ -15,7 +13,6 @@ function UsersList(props){
     let url = API_URL + "/users/usersList";
     try{
       let resp = await doApiGet(url);
-      // console.log(resp.data);
       setAr(resp.data);
     }
     catch(err){
@@ -30,7 +27,6 @@ function UsersList(props){
     if (window.confirm("Are you sure you want to delete?")) {
       let url = API_URL+"/users/"+_idDel
       let resp = await doApiMethod(url,"DELETE",{});
-      console.log(resp.data);
       doApi()
     }
   }

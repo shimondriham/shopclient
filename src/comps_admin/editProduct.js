@@ -30,19 +30,16 @@ function EditProduct(props) {
   const doApi = async () => {
     let url = API_URL + "/categories";
     let resp = await doApiGet(url);
-    // console.log(resp.data);
     setCatAr(resp.data);
 
     // get product props from api 
     let urlProduct = API_URL+"/products/single/"+params.id;
     let resp2 = await doApiGet(urlProduct);
-    console.log(resp2.data)
     setProduct(resp2.data);
 
   }
 
   const onSubForm = (formData) => {
-    // console.log(formData);
     doFormApi(formData);
   }
 
@@ -50,10 +47,8 @@ function EditProduct(props) {
     let url = API_URL + "/products/"+params.id;
     try {
       let resp = await doApiMethod(url, "PUT", formData);
-      // console.log(resp.data);
       if (resp.data.modifiedCount) {
         toast.success("Product updated");
-        // back to the list of products in the admin panel
         nav("/admin/products")
       }
       else{
@@ -70,9 +65,6 @@ function EditProduct(props) {
     <div className='container'>
       <AuthAdminComp />
       <h1>Edit product</h1>
-      {/* if product._id is true its mean that the product
-      object get the all data from the api and with this check
-      we avoid from blank memory of inputs  */}
       {(product._id) ?
       <form onSubmit={handleSubmit(onSubForm)} className='col-md-6 p-3 shadow'>
         <label>Name:</label>
@@ -92,7 +84,6 @@ function EditProduct(props) {
         {errors.qty ? <small className='text-danger d-block'>* Enter valid  qty, between 1 to 9999</small> : ""}
 
         <label>Category:</label>
-        {/* DefaultValue - what to choose in the start from the options */}
         <select defaultValue={product.cat_short_id} {...cat_short_idRef}  className='form-select'>
           <option  value="" >Choose Category</option>
           {cat_ar.map(item => {
@@ -100,7 +91,6 @@ function EditProduct(props) {
               <option key={item._id} value={item.short_id}>{item.name}</option>
             ) 
           })}
-          {/* loop from api of category */}
         </select>
         {errors.cat_short_id ? <small className='text-danger d-block'>You must choose category from the list </small> : ""}
 

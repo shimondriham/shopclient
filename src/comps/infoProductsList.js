@@ -12,26 +12,16 @@ function InfoProductsList(props){
   },[])
 
   const doApi = async() =>{ 
-    let url = API_URL+"/products?perPage=5&cat="+props.
-    cat_short_id;
-
+    let url = API_URL+"/products?perPage=5&cat="+props.cat_short_id;
     let resp = await doApiGet(url);
-    console.log(resp.data);
-    
-
-    // check if we are in the product page
-    // not show it again in the list of new products
-    // in first time
     let temp_ar = resp.data;
     temp_ar = temp_ar.filter(item => {
-
       return item._id != params.id;
     })
     if(temp_ar.length > 4){
       temp_ar.pop();
     }
      
-  
     setAr(temp_ar);
   }
   

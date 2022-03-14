@@ -12,8 +12,6 @@ import { getCartFromLocal, saveCartLocal } from '../services/localService';
 
 function LayoutClient(props) {
   const [favs_ar, setFavsAr] = useState([]);
-
-
   const [cart_ar,setCartAr] = useState([]);
   const [showCart, setShowCart] = useState("none");
 
@@ -61,10 +59,10 @@ function LayoutClient(props) {
       }
     }
     else{
-      // if user not logged in will erase all favorite in the memory like in log out
       setFavsAr([])
     }
   }
+  
 // add or remove from favorites of user
   const addRemoveFav = async(_short_id) => {
     if (localStorage["tok"]) {

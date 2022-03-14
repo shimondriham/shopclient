@@ -17,7 +17,6 @@ function CheckoutInfo(props) {
   const doApi = async () => {
     let url = API_URL + "/orders/productsInfo/" + params.id;
     let resp = await doApiGet(url);
-    // console.log(resp.data);
     setOrderInfo(resp.data.order);
     setAr(resp.data.products);
   }
@@ -26,7 +25,6 @@ function CheckoutInfo(props) {
     let status = selectRef.current.value;
     let url = API_URL + "/orders/" + orderInfo._id + "?status=" + status;
     let resp = await doApiMethod(url, "PATCH", {});
-    // console.log(resp.data);
     if (resp.data.modifiedCount == 1) {
       doApi();
     }
@@ -51,10 +49,8 @@ function CheckoutInfo(props) {
           </select>
         </div>
       </article> : <h2>Loading...</h2>}
-      {/* TODO: option to change status 
-        if img not found show another img
-      */}
-      <h4>Total price of order:{orderInfo.total_price} nis</h4>
+  
+      <h4>Total price of order:{orderInfo.total_price} <i class="fa fa-ils" aria-hidden="true"></i></h4>
       <table className='table table-striped'>
         <thead>
           <tr>

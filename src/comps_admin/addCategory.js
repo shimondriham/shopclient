@@ -18,7 +18,6 @@ function AddCategory(props){
    let img_urlRef = register("img_url", { required: true, minLength: 3, maxLength: 500 })
  
    const onSubForm = (formData) => {
-     // console.log(formData);
      setBtnSend(true);
      doFormApi(formData);
    }
@@ -27,11 +26,9 @@ function AddCategory(props){
      let url = API_URL + "/categories";
      try {
        let resp = await doApiMethod(url, "POST", formData);
-       // console.log(resp.data);
        if (resp.data._id) {
         
          toast.success("Category added")
-         // back to the list of products in the admin panel
          nav("/admin/categories")
        }
      }

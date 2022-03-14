@@ -34,7 +34,6 @@ function AppRoute(props){
   return(
     <Router>
       <Routes>
-        {/* for admin user */}
         <Route path="/admin" element={<LayoutAdmin />}>
           <Route index element={<LoginAdmin />}/>
           <Route path="/admin/products" element={<ProductsAdminList />}/>
@@ -48,7 +47,6 @@ function AppRoute(props){
           <Route path="/admin/checkout" element={<CheckoutListAdmin />}/>
           <Route path="/admin/checkoutInfo/:id" element={<CheckoutInfo />}/>
         </Route>
-        {/* For regular user client path */}
         <Route path="/" element={<LayoutClient />}>
           <Route index element={<Home />} />
           <Route path="/products/:cat_url" element={<ProductsListPage />}  />
@@ -61,11 +59,9 @@ function AppRoute(props){
           <Route path="/checkout" element={<Checkout />}  />
           <Route path="/oldOrders" element={<OldOrders />}  />
           <Route path="/oldOrders/:idOrder" element={<OldOrderInfoClient />}  />
-         {/* * - for any url that not in another route go to 404 */}
           <Route path="/*" element={<Page404 />} />
         </Route> 
       </Routes>
-      {/* theme='colored' make the toast message bg to be red,green... */}
       <ToastContainer position="top-right" theme='colored' />
     </Router> 
   )

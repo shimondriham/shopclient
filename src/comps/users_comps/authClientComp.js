@@ -5,7 +5,6 @@ import { API_URL, doApiGet } from '../../services/apiService';
 import { SHOP_TOKEN } from '../../services/localService';
 
 function AuthClientComp(props) {
-
   let nav = useNavigate()
 
   useEffect(() => {
@@ -13,12 +12,11 @@ function AuthClientComp(props) {
       doApiAuth();
     }
     else {
-      // nav to login
       nav("/login")
-      // show toast message in yellow that the user must be connected    
       toast.warning("You must be logged in user to be here, please log in and come back")
     }
   }, [])
+
 
   // check the token of user
   const doApiAuth = async () => {

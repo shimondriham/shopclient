@@ -13,7 +13,6 @@ function HomeCategoryList(props) {
   const doApi = async () => {
     let url = API_URL + "/categories";
     let resp = await doApiGet(url);
-    console.log(resp.data);
     setAr(resp.data);
   }
 
@@ -28,11 +27,7 @@ function HomeCategoryList(props) {
             return (
               <Link to={"/products/"+item.url_name} key={item._id} className='myCard col-md-4 p-3'>
                 <div className="shadow  bg-dark text-white">
-                  {/* check if there bg image  */}
-
                   <div style={{ backgroundImage: `url(${item.img_url || "/images/cover.jpg"})` }} className='img_card'></div>
-                  {/* TODO:Add link */}
-                    
                   <h3 className='p-2'>{item.name}</h3>
                 </div>
               </Link>)

@@ -21,7 +21,6 @@ function SearchProducts(props){
     setWhatSearch(searchQuery);
     let url = API_URL+"/products/search?s="+searchQuery;
     let resp = await doApiGet(url);
-    console.log(resp.data);
     setShowLoading(false);
     setAr(resp.data);
   }

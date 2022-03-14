@@ -20,7 +20,6 @@ function ProductInfo(props){
   const doApi = async() => {
     let url = API_URL + "/products/single/"+params.id;
     let resp = await doApiGet(url);
-    console.log(resp.data);
      setProduct(resp.data)
     //  save in visited in local
      addProdVisitedToLocal(resp.data.short_id)
@@ -42,7 +41,7 @@ function ProductInfo(props){
         <div className="col-md-8">
           <h2 className='display-4'>{product.name}</h2>
           <p><strong>Info:</strong> {product.info}</p>
-          <h3>Price: {product.price} nis</h3>
+          <h3>Price: {product.price} </h3>
           <h3>Condition: {product.condition}</h3>
           <h4>Quantity: {product.qty} </h4>
           <button onClick={() => {

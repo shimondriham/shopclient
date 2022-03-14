@@ -21,7 +21,6 @@ function ProductsHome(props){
       url = API_URL+"/products?perPage=4";
     }
     let resp = await doApiGet(url);
-    console.log(resp.data);
     setAr(resp.data);
   }
 

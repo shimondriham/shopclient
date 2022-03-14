@@ -26,13 +26,11 @@ function EditCategory(props){
   const doApi = async() => {
     let urlProduct = API_URL+"/categories/single/"+params.url_name;
     let resp2 = await doApiGet(urlProduct);
-    console.log(resp2.data)
     setCategory(resp2.data);
   }
 
    const onSubForm = (formData) => {
-     // console.log(formData);
-    //  setBtnSend(true);
+
      doFormApi(formData);
    }
  
@@ -40,10 +38,8 @@ function EditCategory(props){
      let url = API_URL + "/categories/"+category._id;
      try {
        let resp = await doApiMethod(url, "PUT", formData);
-       // console.log(resp.data);
        if (resp.data.modifiedCount) {
          toast.success("Category updated");
-         // back to the list of products in the admin panel
          nav("/admin/categories")
        }
        else{
@@ -77,7 +73,6 @@ function EditCategory(props){
  
 
 
-         {/* disable-> if true user cant click */}
          <button className='mt-4 btn btn-warning' disabled={btnSend}>update category</button>
        </form> : <h2>Loading...</h2> }
      </div>

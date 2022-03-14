@@ -16,7 +16,6 @@ function CategoriesList(props){
     let url = API_URL + "/categories";
     try{
       let resp = await doApiGet(url);
-      // console.log(resp.data);
       setAr(resp.data);
     }
     catch(err){
@@ -32,7 +31,6 @@ function CategoriesList(props){
       try{
         let url = API_URL+"/categories/"+_idDel;
         let resp = await doApiMethod(url,"DELETE",{});
-        console.log(resp.data);
         if(resp.data.deletedCount){
           toast.info("Category delted !");
         }

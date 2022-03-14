@@ -17,7 +17,6 @@ function FavsProducts(props) {
     setLoading(true);
     let url = API_URL+"/favs/productsInfo";
     let resp = await doApiGet(url)
-    console.log(resp.data);
     setAr(resp.data)
     setLoading(false);
   }
