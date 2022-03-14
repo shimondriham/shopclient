@@ -60,11 +60,11 @@ return (
       <label><i class="fa fa-lock" aria-hidden="true"></i> Password:</label>
       <input {...passwordRef} type="text" className='form-control' />
       {errors.password ? <small className='text-danger d-block'>* Enter valid password, min 3 chars</small> : ""}
-      <label><i class="fa fa-address-card-o" aria-hidden="true"></i> Address:</label>
-      <input {...addressRef} type="text" className='form-control' />
+      <label><i class="fa fa-address-card-o" aria-hidden="true" ></i> Address:</label>
+      <input {...addressRef} type="text" className='form-control' placeholder='not required'/>
       {errors.address ? <small className='text-danger d-block'>* Enter valid address, min 2 chars</small> : ""}
       <label><i class="fa fa-phone-square" aria-hidden="true"></i> Phone:</label>
-      <input {...phoneRef} type="text" className='form-control' />
+      <input {...phoneRef} type="text" className='form-control' placeholder='not required'/>
       {errors.phone ? <small className='text-danger d-block'>* Enter valid phone number, min 9 numbers</small> : ""}
 
       <button className='btn btn-info mt-4'>Sign up <i class="fa fa-sign-in" aria-hidden="true"></i></button>

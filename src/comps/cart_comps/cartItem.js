@@ -14,8 +14,8 @@ function CartItem(props){
 
   return(
     <div className='border pt-2 px-2 overflow-hidden'>
-      <button onClick={onRemoveItemClick} className='float-end badge bg-danger ms-2'>X</button>
-      <h5 className='float-end'>{item.price} Nis</h5>
+      <button onClick={onRemoveItemClick} className='btn btn-outline-danger float-end badge text-danger ms-2'>X</button>
+      <h5 className='float-end'>{item.price} <i class="fa fa-ils" aria-hidden="true"></i></h5>
       <h5>{item.name} </h5>
     </div> 
   )
