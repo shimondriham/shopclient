@@ -57,7 +57,7 @@ function LogInClient(props){
       {errors.password ? <small className='text-danger d-block'>* Enter valid password, min 3 chars</small> : ""}
       
 
-      <button className='btn btn-success mt-5'>Log in <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+      <button style={{fontFamily:"cursive"}} className='btn btn-success mt-5 px-4 mx-2'>Log in <i class="fa fa-sign-in mx-1" aria-hidden="true"></i></button>
     </form>
   </div> 
   )

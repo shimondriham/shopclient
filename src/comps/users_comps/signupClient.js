@@ -67,7 +67,7 @@ return (
       <input {...phoneRef} type="text" className='form-control' placeholder='not required'/>
       {errors.phone ? <small className='text-danger d-block'>* Enter valid phone number, min 9 numbers</small> : ""}
 
-      <button className='btn btn-info mt-4'>Sign up <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+      <button style={{fontFamily:"cursive"}} className='btn btn-info mt-4 mx-2 px-3'>Sign up <i class="fa fa-sign-in mx-1" aria-hidden="true"></i></button>
     </form>
   </div>
 )
