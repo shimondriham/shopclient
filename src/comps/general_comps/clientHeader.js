@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { BsSearch, BsCart3} from "react-icons/bs"
-
 import { checkTokenLocal } from '../../services/localService';
 import {AppContext} from "../../context/shopContext"
 import Hamburger from 'hamburger-react'
