@@ -16,13 +16,12 @@ function CheckoutListAdmin(props){
     doApi();
   },[location])
 
+  
   const doApi = async() => {
     let pageQ = query.get("page") || 1;
     setPage(pageQ-1)
-
     let url = API_URL+"/orders/allOrders?page="+pageQ;
     let resp = await doApiGet(url);
-    console.log(resp.data);
     setAr(resp.data); 
   }
 
@@ -41,7 +40,7 @@ function CheckoutListAdmin(props){
             <th>address</th>
             <th>total price</th>
             <th>amount of kind of products</th>
-            <th>del/info</th>
+            <th>info</th>
           </tr>
         </thead>
         <tbody>

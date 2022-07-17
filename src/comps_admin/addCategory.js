@@ -27,7 +27,6 @@ function AddCategory(props){
      try {
        let resp = await doApiMethod(url, "POST", formData);
        if (resp.data._id) {
-        
          toast.success("Category added")
          nav("/admin/categories")
        }

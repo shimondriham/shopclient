@@ -11,6 +11,7 @@ function SignUpClient(props) {
   const onSubForm = (data) => {
     doApi(data)
   }
+
   const doApi = async (_dataBody) => {
     let url = API_URL + "/users/";
     try {
@@ -20,52 +21,52 @@ function SignUpClient(props) {
         nav("/login");
       }
     }
-    catch(err){
-      if(err.response.data.code === 11000){
-          toast.error("Email already in system , try log in")
+    catch (err) {
+      if (err.response.data.code === 11000) {
+        toast.error("Email already in system , try log in")
       }
-      else{
+      else {
         alert("There problem , try come back later")
       }
     }
   }
 
 
-let nameRef = register("name", { required: true, minLength: 2 });
-let emailRef = register("email", {
-  required: true,
-  pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
-})
+  let nameRef = register("name", { required: true, minLength: 2 });
+  let emailRef = register("email", {
+    required: true,
+    pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+  })
 
-let passwordRef = register("password", { required: true, minLength: 3 });
-let addressRef = register("address", { required: false, minLength: 2 });
-let phoneRef = register("phone", { required: false, minLength: 9 });
+  let passwordRef = register("password", { required: true, minLength: 3 });
+  let addressRef = register("address", { required: false, minLength: 2 });
+  let phoneRef = register("phone", { required: false, minLength: 9 });
 
 
-return (
-  <div className='container col-md-6 mx-auto my-5'>
-    <h1>Sign up to the store</h1>
-    <form onSubmit={handleSubmit(onSubForm)} className='col-12 p-3 border'>
-      <label><i className="fa fa-user" aria-hidden="true"></i> Name:</label>
-      <input {...nameRef} type="text" className='form-control' />
-      {errors.name ? <small className='text-danger d-block'>* Enter valid name, min 2 chars</small> : ""}
-      <label><i className="fa fa-envelope" aria-hidden="true"></i>  Email:</label>
-      <input {...emailRef} type="text" className='form-control' />
-      {errors.email ? <small className='text-danger d-block'>* Email invalid</small> : ""}
-      <label><i className="fa fa-lock" aria-hidden="true"></i> Password:</label>
-      <input {...passwordRef} type="password" className='form-control' />
-      {errors.password ? <small className='text-danger d-block'>* Enter valid password, min 3 chars</small> : ""}
-      <label><i className="fa fa-address-card-o" aria-hidden="true" ></i> Address:</label>
-      <input {...addressRef} type="text" className='form-control' placeholder='not required'/>
-      {errors.address ? <small className='text-danger d-block'>* Enter valid address, min 2 chars</small> : ""}
-      <label><i className="fa fa-phone-square" aria-hidden="true"></i> Phone:</label>
-      <input {...phoneRef} type="text" className='form-control' placeholder='not required'/>
-      {errors.phone ? <small className='text-danger d-block'>* Enter valid phone number, min 9 numbers</small> : ""}
+  return (
+    <div className='container col-md-6 mx-auto my-5'>
+      <h1>Sign up to the store</h1>
+      <form onSubmit={handleSubmit(onSubForm)} className='col-12 p-3 border'>
+        <label><i className="fa fa-user" aria-hidden="true"></i> Name:</label>
+        <input {...nameRef} type="text" className='form-control' />
+        {errors.name ? <small className='text-danger d-block'>* Enter valid name, min 2 chars</small> : ""}
+        <label><i className="fa fa-envelope" aria-hidden="true"></i>  Email:</label>
+        <input {...emailRef} type="text" className='form-control' />
+        {errors.email ? <small className='text-danger d-block'>* Email invalid</small> : ""}
+        <label><i className="fa fa-lock" aria-hidden="true"></i> Password:</label>
+        <input {...passwordRef} type="password" className='form-control' />
+        {errors.password ? <small className='text-danger d-block'>* Enter valid password, min 3 chars</small> : ""}
+        <label><i className="fa fa-address-card-o" aria-hidden="true" ></i> Address:</label>
+        <input {...addressRef} type="text" className='form-control' placeholder='not required' />
+        {errors.address ? <small className='text-danger d-block'>* Enter valid address, min 2 chars</small> : ""}
+        <label><i className="fa fa-phone-square" aria-hidden="true"></i> Phone:</label>
+        <input {...phoneRef} type="text" className='form-control' placeholder='not required' />
+        {errors.phone ? <small className='text-danger d-block'>* Enter valid phone number, min 9 numbers</small> : ""}
 
-      <button style={{fontFamily:"cursive"}} className='btn btn-info mt-4 mx-2 px-3'>Sign up <i className="fa fa-sign-in mx-1" aria-hidden="true"></i></button>
-    </form>
-  </div>
-)
+        <button style={{ fontFamily: "cursive" }} className='btn btn-info mt-4 mx-2 px-3'>Sign up <i className="fa fa-sign-in mx-1" aria-hidden="true"></i></button>
+      </form>
+    </div>
+  )
 }
 
 export default SignUpClient

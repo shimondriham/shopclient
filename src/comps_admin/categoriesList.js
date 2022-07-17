@@ -12,6 +12,7 @@ function CategoriesList(props){
     doApi()
   },[])
 
+  
   const doApi = async() =>{
     let url = API_URL + "/categories";
     try{

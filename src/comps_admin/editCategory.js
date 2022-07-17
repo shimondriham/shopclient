@@ -71,8 +71,6 @@ function EditCategory(props){
          <input defaultValue={category.img_url} {...img_urlRef} type="text"  className='form-control' />
          {errors.img_url ? <small className='text-danger d-block'>* Enter valid url for image, between 1 to 500 chars</small> : ""}
  
-
-
          <button className='mt-4 btn btn-warning' disabled={btnSend}>update category</button>
        </form> : <h2>Loading...</h2> }
      </div>

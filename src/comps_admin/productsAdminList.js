@@ -69,7 +69,7 @@ function ProductsAdminList(props){
       <AuthAdminComp />
       <h1>List of products in system</h1>
       <Link to="/admin/addProduct" className="btn btn-success">Add new product</Link>
-      <PageLinks perPage="5" apiUrlAmount={API_URL+"/products/amount"} urlLinkTo={"/admin/products"} clsCss="btn btn-info me-1" />
+      <PageLinks perPage="5" apiUrlAmount={API_URL+"/posts/amount"} urlLinkTo={"/admin/posts"} clsCss="btn btn-info me-1" />
       <table className='table table-striped'>
         <thead>
           <tr>
